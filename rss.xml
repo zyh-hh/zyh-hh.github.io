@@ -1,0 +1,1052 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+
+
+
+
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>zyhhh</title>
+        <link>https://example.com/</link>
+        <description>MemE 是一个强大且可高度定制的 GoHugo 博客主题，专为个人博客设计。</description>
+        <generator>Hugo 0.64.1 https://gohugo.io/</generator>
+        
+            <language>zh-CN</language>
+        
+        
+            <managingEditor>1612291475@qq.com (zyh)</managingEditor>
+        
+        
+            <webMaster>1612291475@qq.com (zyh)</webMaster>
+        
+        
+            <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright>
+        
+        <lastBuildDate>Fri, 10 Apr 2020 01:22:42 +0800</lastBuildDate>
+        
+            <atom:link rel="self" type="application/rss+xml" href="https://example.com/rss.xml" />
+        
+        
+            <item>
+                <title>给博客添加一个live2d看板娘</title>
+                <link>https://example.com/posts/live2d/</link>
+                <guid isPermaLink="true">https://example.com/posts/live2d/</guid>
+                <pubDate>Fri, 30 Aug 2019 01:53:34 +0800</pubDate>
+                
+                    <author>1612291475@qq.com (zyh)</author>
+                
+                <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright>
+                
+                    <description><![CDATA[<h2 id="live2d-是什么">Live2d 是什么</h2>
+<p>Live2d 的官网地址：https://www.live2d.com/zh-CHS/</p>
+<p>Live2d 是一种 <code>2d</code> 的绘图渲染技术，是由日本的一个叫 <code>Cybernoids</code> 的公司开发，通过一系列可以连续动画的的人物或者动物来建立模型，生成一种可以动的 <code>2d</code> 图形或者说二维模型。这种模型和二次元很接近，所以喜欢这种风格的人很多，但是也有它自身的缺陷那就是不容易商业化和更快的发展，例如现在的 <code>3d</code> 模型在游戏上和 <code>VR</code> 技术上有很大的发展空间，而 <code>Live2d</code> 至今还没有找到合适的契合点，但是这丝毫不影响宅男对这项技术的热爱。</p>
+<p><a href="https://dp2px.com/post/hexo-live2d/image1.webp"><img src="https://dp2px.com/post/hexo-live2d/image1.webp" alt="Live2d 二维模型演示"></a>Live2d 二维模型演示</p>
+<h2 id="live2d-的制作过程">Live2d 的制作过程</h2>
+<p>官网下载安装包直接安装可以得到两种软件，分别是 <code>Cubism Modeler</code> 和 <code>Cubism Animator</code>，最后我们还需要安装第三个软件 <code>Viewer</code> 用作预览调戏等。</p>
+<p>由于还是由 <code>2d</code> 图形制作，所以对动画师要求比较高，除去原画绘制能力，动画师还需要具有一定三维空间感，以及复杂逻辑能力。制作过程大致如下：</p>
+<ul>
+<li>使用 <code>PhotoShop</code> 制作 <code>psd</code> 格式的原画切图。</li>
+<li>导入 <code>Cubism Modeler</code> 里蒙皮。</li>
+<li>设置蒙皮。</li>
+<li>导出到 <code>Cubism Animator</code> 里面开始制作动画。</li>
+<li>最后再导出文件就完成了。</li>
+</ul>
+<h2 id="引入看板娘博客挂件">引入看板娘博客挂件</h2>
+<h3 id="第一步依赖-dependencies">第一步：依赖 Dependencies</h3>
+<p>你要确保你的页面中可以使用 <code>font-awesome</code>, 需要使用到，还有就是 <code>jQuery</code> 是否有添加。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js&#34;</span><span class="p"></span><span class="p">&gt;</span><span class="p">&lt;</span><span class="p">/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;stylesheet&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css&#34;</span><span class="p"></span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>如果你发现没有显示出来，检查一下你的 <code>jQuery</code> 是否正常引入了。</p>
+<h3 id="第二步使用-usage">第二步：使用 Usage</h3>
+<p>你可以使用一行代码完成看板娘的引入，你只需要在你的 <code>footer</code> 中添加如下代码即可：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget/autoload.js&#34;</span><span class="p"></span><span class="p">&gt;</span><span class="p">&lt;</span><span class="p">/</span><span class="nt">script</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>做完这两步你已经完成了，但是我们这样做还是不够的，例如我们想修改看板娘上面的提示文字和锚点，和自己的网站内容关联和呼应，这样就需要将下面这几个文件下载到本地静态文件夹即可。</p>
+<p><a href="https://dp2px.com/post/hexo-live2d/image2.png"><img src="https://dp2px.com/post/hexo-live2d/image2.png" alt="Live2d 本地需要下载的文件"></a>Live2d 本地需要下载的文件</p>
+<p>这些文件你可以在原作者的 <code>GitHub</code> 上面下载，下载地址：https://github.com/stevenjoezhang/live2d-widget</p>
+<p>接下来你只需要配置一下 <code>autoload.js</code> 里面的根目录即可，配置如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="c1">//注意：live2d_path 参数应使用绝对路径
+</span><span class="c1"></span><span class="kr">const</span> <span class="nx">live2d_path</span> <span class="o">=</span> <span class="s2">&#34;/live2d/&#34;</span><span class="p">;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="自定义-live2d-看板娘">自定义 Live2d 看板娘</h2>
+<p>安装完成后我们可以对看板娘的样式和头顶的气泡消息自定义，这样可以做出和自己网站很契合的交互效果，使这个看板娘成为你网站上独一无二的。</p>
+<h3 id="live2d-看板娘大小调整">Live2d 看板娘大小调整</h3>
+<p>调整看板娘的大小和上面气泡对话框的大小，还有侧边菜单的样式，是否显示等都可以在 <code>waifu.css</code> 样式文件中进行修改，我们只需要在浏览器中 F12 查看对应控件的名称即可，在样式文件中找到对应的元素标签进行修改即可。</p>
+<p>当然，你也可以在浏览器中修改样式，这样可以一边修改一边查看效果，将有效果的修改结果更改到 <code>waifu.css</code> 文件中即可。</p>
+<h3 id="live2d-自定义隐藏功能">Live2d 自定义隐藏功能</h3>
+<p>我们如果想要隐藏组件中的某些地方，或者修改跳转链接，或者自定义显示按钮图标的样子都可以通过修改 <code>waifu-tips.js</code> 文件实现，例如我们要更改菜单的多少，可以这样修改：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">$</span><span class="p">(</span><span class="s2">&#34;body&#34;</span><span class="p">)</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="sb">`</span><span class="sb">&lt;div id=&#34;waifu&#34;&gt;
+</span><span class="sb">    &lt;div id=&#34;waifu-tips&#34;&gt;&lt;/div&gt;
+</span><span class="sb">    &lt;canvas id=&#34;live2d&#34; width=&#34;300&#34; height=&#34;300&#34;&gt;&lt;/canvas&gt;
+</span><span class="sb">    &lt;div id=&#34;waifu-tool&#34;&gt;
+</span><span class="sb">        &lt;span class=&#34;fa fa-lg fa-paper-plane&#34;&gt;&lt;/span&gt;
+</span><span class="sb">        &lt;span class=&#34;fa fa-lg fa-user-circle&#34;&gt;&lt;/span&gt;
+</span><span class="sb">        &lt;span class=&#34;fa fa-lg fa-street-view&#34;&gt;&lt;/span&gt;
+</span><span class="sb">        &lt;span class=&#34;fa fa-lg fa-camera-retro&#34;&gt;&lt;/span&gt;
+</span><span class="sb">        &lt;span class=&#34;fa fa-lg fa-times&#34;&gt;&lt;/span&gt;
+</span><span class="sb">    &lt;/div&gt;
+</span><span class="sb">&lt;/div&gt;</span><span class="sb">`</span><span class="p">)</span><span class="p">;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>只需要修改这里的标签，不需要的删除即可，如果要添加就追加一个，其他地方也是类似的设置，如果需要你可以查看该文件修改其他地方。</p>
+<h3 id="live2d-看板娘对话自定义">Live2d 看板娘对话自定义</h3>
+<p>我们的看板娘会时不时的和我们对话，而且你会发现当你的鼠标从某个标签或者链接上面移动过后，看板娘都会和你互动，而这个互动可能和我们的网站内容不契合，所以我们需要打开文件 <code>waifu-tips.json</code> 来进行修改，或者进行删除，当然也可以添加新的。</p>
+<p>这个文件里面的内容大致结构如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-json" data-lang="json"><span class="p">{</span>
+    <span class="nt">&#34;mouseover&#34;</span><span class="p">:</span> <span class="p">[</span><span class="p">{</span>
+        <span class="nt">&#34;selector&#34;</span><span class="p">:</span> <span class="s2">&#34;#waifu #live2d&#34;</span><span class="p">,</span>
+        <span class="nt">&#34;text&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;对话提示一&#34;</span><span class="p">,</span> <span class="s2">&#34;对话提示二&#34;</span><span class="p">]</span>
+    <span class="p">}</span><span class="p">]</span><span class="p">,</span>
+    <span class="nt">&#34;click&#34;</span><span class="p">:</span> <span class="p">[</span><span class="p">{</span>
+        <span class="nt">&#34;selector&#34;</span><span class="p">:</span> <span class="s2">&#34;#waifu #live2d&#34;</span><span class="p">,</span>
+        <span class="nt">&#34;text&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;对话提示一&#34;</span><span class="p">,</span> <span class="s2">&#34;对话提示二&#34;</span><span class="p">]</span>
+    <span class="p">}</span><span class="p">]</span><span class="p">,</span>
+    <span class="nt">&#34;seasons&#34;</span><span class="p">:</span> <span class="p">[</span><span class="p">{</span>
+        <span class="nt">&#34;date&#34;</span><span class="p">:</span> <span class="s2">&#34;01/01&#34;</span><span class="p">,</span>
+        <span class="nt">&#34;text&#34;</span><span class="p">:</span> <span class="s2">&#34;对话提示&#34;</span>
+    <span class="p">}</span><span class="p">]</span>   
+<span class="p">}</span>  
+</code></pre></td></tr></table>
+</div>
+</div><p>从上面的 json 结构中可以看出来，实际上对我们的事件响应做出三个分类，一种使鼠标移动事件，另一种使鼠标点击事件，还有一种使日期事件，我们可以给这些集合中添加我们想绑定的事件，<code>selector</code> 就是要绑定事件的标签的id, 而 <code>text</code> 则是绑定后提示的文本，如果有多条则会随机提示其中的某一条。</p>
+<p>做到这里已经能基本满足我们的需求，如果你还想深度定制也可以，你可以研究一下源代码，然后定制更好玩的东西出来。关于博客装扮和美化还有很多好玩的东西，如果你有兴趣可以看看我写的关于博客美化的这篇文章 <a href="https://dp2px.com/2019/04/25/hexo-meihua/">《Hexo主题（Next）美化、配置、优化这一篇就够了》</a></p>]]></description>
+                
+                
+                
+                
+                
+                    
+                        
+                            
+                                
+                                
+                                
+                                    <category domain="https://example.com/categories/%E5%8D%9A%E5%AE%A2/">博客</category>
+                                
+                            
+                        
+                    
+                        
+                            
+                                
+                                
+                                
+                                    <category domain="https://example.com/tags/live2d/">live2d</category>
+                                
+                            
+                        
+                    
+                
+            </item>
+        
+            <item>
+                <title>PicGo &#43; Gitee(码云)实现markdown图床</title>
+                <link>https://example.com/posts/picgo-&#43;-gitee%E5%AE%9E%E7%8E%B0markdown%E5%9B%BE%E5%BA%8A/</link>
+                <guid isPermaLink="true">https://example.com/posts/picgo-&#43;-gitee%E5%AE%9E%E7%8E%B0markdown%E5%9B%BE%E5%BA%8A/</guid>
+                <pubDate>Thu, 30 Aug 2018 16:01:23 +0800</pubDate>
+                
+                    <author>1612291475@qq.com (zyh)</author>
+                
+                <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright>
+                
+                    <description><![CDATA[<p>咱们写博客的时候，总是需要插入图片的，图片存在本地的话上传到博客网站去就没法显示了，就算一个图一个图的复制粘贴上去，想移植到其他的博客网站，图就会失效，我们就需要图床</p>
+<blockquote>
+<p>图床是干什么的？
+图床就是一个便于在博文中插入在线图片连接的个人图片仓库。设置图床之后，在自己博客中插入的图片链接就可以随时随地在线预览了，并且不会因为任何意外原因无法查看，除非自己亲自删除。</p>
+</blockquote>
+<p>神奇的PicGo就是为了解决这个问题诞生的，它可以将图片上传到指定的图床上，然后返回markdown链接，直接粘贴到你的文档中，就搞定啦</p>
+<h2 id="1-安装">1. 安装</h2>
+<ul>
+<li>PicGo</li>
+<li>gitee 1.2.2-beta插件</li>
+</ul>
+<h4 id="首先打开upicgo官网httpslinkzhihucomtargethttps3agithubcommolunerfinnpicgou下载安装包">首先打开<strong><u><a href="https://link.zhihu.com/?target=https%3A//github.com/Molunerfinn/PicGo">picgo官网</a></u></strong>，下载安装包</h4>
+<p><img src="https://pic2.zhimg.com/80/v2-6a5d78ebb1910843ff4d2872580d21a5_720w.png" alt="img"></p>
+<h3 id="安装之后打开主界面">安装之后打开主界面</h3>
+<p><img src="https://gitee.com/zyh-h/blogimg/raw/master/img/image-20200408153822640.png" alt=""></p>
+<h3 id="选择最底下的插件设置搜索gitee">选择最底下的插件设置，搜索<strong>gitee</strong></h3>
+<p><img src="https://gitee.com/zyh-h/blogimg/raw/master/img/image-20200408154045567.png" alt="image-20200408154045567"></p>
+<h3 id="点击左边的gitee-122-beta开始安装">点击左边的<strong>gitee 1.2.2-beta</strong>开始安装</h3>
+<blockquote>
+<p>这里注意一下，必须要先安装<a href="https://link.zhihu.com/?target=https%3A//nodejs.org/en/">node.js</a>才能安装插件，没装的自己装一下，然后重启就行。</p>
+</blockquote>
+<p>这个地方有两个插件，我试了一遍，两个都能用，大家看心情选择，先说一下右边这个<strong>gitee-uploader 1.1.2</strong>，用不了的同学就选左边那个，我都会讲一遍配置</p>
+<hr>
+<h2 id="2-建立gitee码云图床库">2. 建立gitee（码云）图床库</h2>
+<p>注册码云的方法很简单，网站引导都是中文，不多说了，我们直接建立自己的图床库。</p>
+<h3 id="点击右上角的号新建仓库">点击右上角的+号，新建仓库</h3>
+<p><img src="https://gitee.com/zyh-h/blogimg/raw/master/img/image-20200408154436124.png" alt=""></p>
+<p>新建仓库的要点如下：</p>
+<ol>
+<li>输入一个仓库名称</li>
+<li>其次将仓库设为公开</li>
+<li>勾选使用Readme文件初始化这个仓库</li>
+</ol>
+<p><strong>这个选项勾上，这样码云会自动给你的仓库建立master分支，这点很重要!!!</strong> 我因为这点折腾了很久，因为使用github做图床picgo好像会自动帮你生成master分支，而picgo里的gitee插件不会帮你自动生成分支。</p>
+<p><img src="https://gitee.com/zyh-h/blogimg/raw/master/img/image-20200408154652152.png" alt="image-20200408154652152"></p>
+<p>点击创建进入下一步</p>
+<hr>
+<h2 id="3-配置picgo">3. 配置PicGo</h2>
+<p>安装了<strong>gitee 1.2.2-beta</strong>插件之后，我们开始配置插件</p>
+<h3 id="配置插件的要点如下">配置插件的要点如下：</h3>
+<p><img src="https://gitee.com/zyh-h/blogimg/raw/master/img/LI.jpg" alt=""></p>
+<ul>
+<li>
+<p>url：图床网站，这里写码云的主页 <a href="https://link.zhihu.com/?target=https%3A//gitee.com">https://gitee.com</a></p>
+</li>
+<li>
+<p>owner：所有者，写上你的码云账号名，如果你不知道你的账号名，进入你刚才的仓库</p>
+</li>
+<li>
+<p>repo：仓库名称，只要写上仓库名称就行，比如我自己的仓库blogImage</p>
+</li>
+<li>
+<p>path：写上路径，一般是img，<strong>这几个项都不用加“ / “符号</strong></p>
+</li>
+<li>
+<p>message：不用填</p>
+</li>
+</ul>
+<h3 id="这个token怎么获取下面登录进自己的码云">这个token怎么获取，下面登录进自己的码云</h3>
+<ol>
+<li>
+<p>点击头像，进入设置</p>
+</li>
+<li>
+<p>找到右边安全设置里面的私人令牌</p>
+</li>
+</ol>
+<p><img src="https://gitee.com/zyh-h/blogimg/raw/master/img/image-20200409000147527.png" alt="image-20200409000147527"></p>
+<ol>
+<li>点击<code>生成新令牌</code>，把<strong>projects</strong>这一项勾上，其他的不用勾，然后提交</li>
+</ol>
+<p><img src="https://gitee.com/zyh-h/blogimg/raw/master/img/image-20200409000126528.png" alt="image-20200409000126528"></p>
+<p>这里需要验证一下密码，验证密码之后会出来一串数字，这一串数字就是你的token，将这串数字复制到刚才的配置里面去。</p>
+<p><img src="https://gitee.com/zyh-h/blogimg/raw/master/img/image-20200408235506861.png" alt=""></p>
+<blockquote>
+<p>注意：这个令牌只会明文显示一次，建议在配置插件的时候再来生成令牌，直接复制进去，搞丢了又要重新生成一个。</p>
+</blockquote>
+<p>现在保存你刚才的配置，然后将它设置为默认图床，大功告成。</p>
+<h4 id="还有一个插件picgo-plugin-gitee-uploader功能差不多刚才那个能用的话就不需要用这个配置的内容有点差别">还有一个插件picgo-plugin-gitee-uploader，功能差不多，刚才那个能用的话就不需要用这个，配置的内容有点差别</h4>
+<hr>
+<h2 id="4-测试">4. 测试</h2>
+<p>随便选一张图片上传（picgo也支持剪贴板上传，截图工具推荐win10的<em>Snipaste</em>神器！），试试看超级快有木有！比github快很多，0.1秒上传，而且导入到你的markdown编辑器里面也是秒识别你的图片内容，而如果是github图床上传太慢不说可能还会出现识别不出来的问题！</p>
+<p>上传之后默认复制链接，直接粘贴到你的markdown编辑器里，就可以愉快的进行写作了！</p>
+<p>最后推荐一下我的博客写作套件<strong>Typora + PicGo + Snipaste</strong>，Typora写文档，Snipaste一键截图，PicGo一键上传图片返回链接。</p>]]></description>
+                
+                
+                
+                
+                
+                    
+                        
+                            
+                                
+                                
+                                
+                                    <category domain="https://example.com/categories/%E5%8D%9A%E5%AE%A2/">博客</category>
+                                
+                            
+                        
+                    
+                        
+                            
+                                
+                                
+                                
+                                    <category domain="https://example.com/tags/preview/">preview</category>
+                                
+                            
+                                
+                                
+                                
+                                    <category domain="https://example.com/tags/syntax-highlighting/">Syntax Highlighting</category>
+                                
+                            
+                                
+                                
+                                
+                                    <category domain="https://example.com/tags/tag-5/">tag-5</category>
+                                
+                            
+                        
+                    
+                
+            </item>
+        
+            <item>
+                <title>单例模式</title>
+                <link>https://example.com/posts/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F-%E5%89%AF%E6%9C%AC-2/</link>
+                <guid isPermaLink="true">https://example.com/posts/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F-%E5%89%AF%E6%9C%AC-2/</guid>
+                <pubDate>Thu, 30 Aug 2018 01:37:56 +0800</pubDate>
+                
+                    <author>1612291475@qq.com (zyh)</author>
+                
+                <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright>
+                
+                    <description><![CDATA[<h2 id="一单例模式">一、单例模式</h2>
+<p>在标准的23种设计模式种，单例设计模式在应用中是非常常见的，而我们在学习单例模式中，一定要考虑到和多线程结合起来时可能存在的各种问题以及其解决办法，这样我们才能写出一个在多线程环境下安全、正确的单例模式。</p>
+<p>单例模式常见的有八种写法(更多时候分为六种，此处更加细分了)：</p>
+<ul>
+<li>饿汉式（静态常量）</li>
+<li>饿汉式（静态代码块）</li>
+<li>懒汉式（线程不安全）</li>
+<li>懒汉式（线程安全，同步方法）</li>
+<li>懒汉式（线程安全，同步代码块）</li>
+<li>双重检查锁</li>
+<li>静态内部类</li>
+<li>枚举</li>
+</ul>
+<hr>
+<h2 id="二单例模式的基本实现思路">二、单例模式的基本实现思路：</h2>
+<p>单例模式要求类能够有返回对象的一个引用（并且永远是同一个）和一个获得该实例的方法（必须是静态方法，往往使用<code>getInstance()</code>这个方法）</p>
+<p>单例模式的实现主要通过以下步骤：</p>
+<p>（1）将该类的构造方法定义为<strong>私有方法</strong>，这样其它的代码就无法通过调用该类的构造方法来实例化该类的对象，只有通过该类提供的静态方法来得到该类的唯一实例；</p>
+<p>（2）在该类种提供一个静态方法，当我们调用这个方法时，如果类持有的引用不为空就返回这个引用，如果类保持的引用为空就创建该类的实例并将实例的引用赋值给该类保持的引用。</p>
+<p>注意事项：单例模式在多线程的环境下必须小心使用，如果当唯一实例尚未创建时，有两个线程同时调用创建方法，那么它们同时没有检测到唯一实例的存在，从而同时各自创建了一个实例，这样就有两个实例被创建了出来，从而违反了单例模式种实例唯一的原则，解决的办法显而易见是加锁。</p>
+<h2 id="三单例模式的八种写法">三、单例模式的八种写法</h2>
+<h3 id="1饿汉式静态常量">1、饿汉式（静态常量）</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nf">singleton</span><span class="o">(</span><span class="o">)</span><span class="o">{</span>
+    <span class="kd">private</span> <span class="kd">final</span> <span class="kd">static</span> <span class="n">Singleton</span> <span class="n">INSTANCE</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Singleton</span><span class="o">(</span><span class="o">)</span><span class="o">;</span>
+    
+    <span class="c1">//注意构造方法必须私有
+</span><span class="c1"></span>    <span class="kd">private</span> <span class="nf">Singleton</span><span class="o">(</span><span class="o">)</span><span class="o">{</span><span class="o">}</span>
+    
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Singleton</span> <span class="nf">getInstance</span><span class="o">(</span><span class="o">)</span><span class="o">{</span>
+        <span class="k">return</span> <span class="n">INSTANCE</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>优点：写法简单，就是在类加载的时候完成实例化，避免了线程同步问题。</p>
+<p>缺点：没有达到懒加载的效果，如果从始至终都未使用过这个实例，会造成内存的浪费。</p>
+<h3 id="2饿汉式静态代码块">2、饿汉式（静态代码块）</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Singleton</span><span class="o">{</span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="n">Singleton</span> <span class="n">instance</span><span class="o">;</span>
+    
+    <span class="kd">static</span><span class="o">{</span>
+        <span class="n">instance</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Singleton</span><span class="o">(</span><span class="o">)</span><span class="o">;</span>
+    <span class="o">}</span>
+    
+    <span class="kd">private</span> <span class="nf">Singleton</span><span class="o">(</span><span class="o">)</span><span class="o">{</span><span class="o">}</span>
+    
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Singleton</span> <span class="nf">getInstance</span><span class="o">(</span><span class="o">)</span><span class="o">{</span>
+        <span class="k">return</span> <span class="n">instance</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>这种方式跟第一种方式类似，都是在类加载的时候完成的，只不过将实例化的过程放在了静态代码块种，优缺点跟上面一样。</p>
+<h3 id="3懒汉式线程不安全">3、懒汉式（线程不安全）</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Singleton</span><span class="o">{</span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="n">Singleton</span> <span class="n">instance</span><span class="o">;</span>
+    
+    <span class="kd">private</span> <span class="nf">Singleton</span><span class="o">(</span><span class="o">)</span><span class="o">{</span><span class="o">}</span>
+    
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Singleton</span> <span class="nf">getInstance</span><span class="o">(</span><span class="o">)</span><span class="o">{</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">instance</span> <span class="o">=</span><span class="o">=</span> <span class="kc">null</span><span class="o">)</span><span class="o">{</span>
+            <span class="n">instance</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Singleton</span><span class="o">(</span><span class="o">)</span><span class="o">;</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="n">instance</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>这种写法在单线程环境下可以使用，但是多线程环境下显然会产生多个实例。</p>
+<h3 id="4懒汉式线程安全同步方法">4、懒汉式（线程安全，同步方法）</h3>
+<pre><code>public class Singleton{
+    private static Singleton instance;
+    
+    private Singleton(){}
+    
+    public static synchronized Singleton getInstance(){
+        if(instance == null){
+            instance = new Singleton();
+        }
+        return instance;
+    }
+}
+</code></pre><p>这种方法是对上面的线程不安全的懒汉式的改进。</p>
+<p>由于每次去获取实例的时候都会进入<code>synchronized</code>代码块而不管实例是否为null，而其实这个方法只需要执行一次实例化代码就可以，因此这样的开销非常大，所以不推荐使用。</p>
+<h3 id="5懒汉式线程安全同步代码块">5、懒汉式（线程安全，同步代码块）</h3>
+<pre><code>public class Singleton{
+    private static Singleton instance;
+    
+    private Singleton(){}
+    
+    public static Singleton getInstance(){
+        if(instance == null){
+            synchronized(Singleton.class){
+                instance = new Singleton();
+            }
+        }
+        return instance;
+    }
+}
+</code></pre><p>并不能起到线程同步的作用，跟第三种方式遇到的情形一致。假如两个线程同时进入了<code>if(instance == null)</code>代码块，那么还是会产生多个实例，因此同样不推荐使用。</p>
+<h3 id="6双重检查锁">6、双重检查锁</h3>
+<pre><code>public class Singleton{
+    private static volatile Singleton singleton;
+    
+    private Singleton(){}
+    
+    public static Singleton getInstance(){
+        if(singleton == null){
+            synchronized(Singleton.class){
+                if(singleton == null){
+                    singleton = new Singleton():
+                }
+            }
+        }
+        return singleton;
+    }
+}
+</code></pre><p>双重检查锁对于多线程开发者来说并不陌生，我们进行了两次<code>if(singleton == null)</code>判断，并通过将实例singleton设置为<code>volatile</code>变量，这样可以实现变量的可见性并且禁止编译器指令重排序造成的其它问题。关于双重检查锁的问题可以详见我的另外一篇博客：
+<img src="https://site-1258928558.cos.ap-guangzhou.myqcloud.com/linkcard.png" alt="图标"></p>
+<p>优点：线程安全，延迟加载，效率较高。</p>
+<h3 id="7静态内部类">7、静态内部类</h3>
+<pre><code>public class Singleton{
+    private Singleton(){}
+    
+    private static class SingletonInstance{
+        private static final Singleton INSTANCE = new Singleton();
+    }
+    
+    public static Singleton getInstance(){
+        return SingletonInstance.INSTANCE;
+    }
+}
+</code></pre><p>这种方式跟饿汉式方式采用的机制类似，但又有不同。两者都是采用了类装载的机制来保证初始化实例时只有一个线程。不同的地方在饿汉式方式是只要Singleton类被装载就会实例化，没有Lazy-Loading（懒加载）的作用，而静态内部类方式在Singleton类被装载时并不会立即实例化，而是在需要实例化时，调用getInstance方法，才会装载SingletonInstance类，从而完成Singleton的实例化。</p>
+<p>类的静态属性只会在第一次加载类的时候初始化，所以在这里，<strong>JVM帮助我们保证了线程的安全性，在类进行初始化时，别的线程是无法进入的。</strong></p>
+<p>优点：避免了线程不安全，延迟加载，效率高。</p>
+<h3 id="8枚举">8、枚举</h3>
+<pre><code>public enum Singleton{
+    INSTANCE;
+    public void whateverMethod(){
+        
+    }
+}
+</code></pre><p>借助JDK1.5中添加的枚举来实现单例模式。不仅能避免多线程同步问题，而且还能防止反序列化重新创建新的对象。可能是因为枚举在JDK1.5中才添加，所以在实际项目开发中，使用枚举实现单例模式很少出现。</p>]]></description>
+                
+                
+                
+                
+                
+                    
+                        
+                    
+                        
+                            
+                                
+                                
+                                
+                                    <category domain="https://example.com/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</category>
+                                
+                            
+                        
+                    
+                
+            </item>
+        
+            <item>
+                <title>单例模式</title>
+                <link>https://example.com/posts/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F-%E5%89%AF%E6%9C%AC/</link>
+                <guid isPermaLink="true">https://example.com/posts/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F-%E5%89%AF%E6%9C%AC/</guid>
+                <pubDate>Thu, 30 Aug 2018 01:37:56 +0800</pubDate>
+                
+                    <author>1612291475@qq.com (zyh)</author>
+                
+                <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright>
+                
+                    <description><![CDATA[<h2 id="一单例模式">一、单例模式</h2>
+<p>在标准的23种设计模式种，单例设计模式在应用中是非常常见的，而我们在学习单例模式中，一定要考虑到和多线程结合起来时可能存在的各种问题以及其解决办法，这样我们才能写出一个在多线程环境下安全、正确的单例模式。</p>
+<p>单例模式常见的有八种写法(更多时候分为六种，此处更加细分了)：</p>
+<ul>
+<li>饿汉式（静态常量）</li>
+<li>饿汉式（静态代码块）</li>
+<li>懒汉式（线程不安全）</li>
+<li>懒汉式（线程安全，同步方法）</li>
+<li>懒汉式（线程安全，同步代码块）</li>
+<li>双重检查锁</li>
+<li>静态内部类</li>
+<li>枚举</li>
+</ul>
+<hr>
+<h2 id="二单例模式的基本实现思路">二、单例模式的基本实现思路：</h2>
+<p>单例模式要求类能够有返回对象的一个引用（并且永远是同一个）和一个获得该实例的方法（必须是静态方法，往往使用<code>getInstance()</code>这个方法）</p>
+<p>单例模式的实现主要通过以下步骤：</p>
+<p>（1）将该类的构造方法定义为<strong>私有方法</strong>，这样其它的代码就无法通过调用该类的构造方法来实例化该类的对象，只有通过该类提供的静态方法来得到该类的唯一实例；</p>
+<p>（2）在该类种提供一个静态方法，当我们调用这个方法时，如果类持有的引用不为空就返回这个引用，如果类保持的引用为空就创建该类的实例并将实例的引用赋值给该类保持的引用。</p>
+<p>注意事项：单例模式在多线程的环境下必须小心使用，如果当唯一实例尚未创建时，有两个线程同时调用创建方法，那么它们同时没有检测到唯一实例的存在，从而同时各自创建了一个实例，这样就有两个实例被创建了出来，从而违反了单例模式种实例唯一的原则，解决的办法显而易见是加锁。</p>
+<h2 id="三单例模式的八种写法">三、单例模式的八种写法</h2>
+<h3 id="1饿汉式静态常量">1、饿汉式（静态常量）</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nf">singleton</span><span class="o">(</span><span class="o">)</span><span class="o">{</span>
+    <span class="kd">private</span> <span class="kd">final</span> <span class="kd">static</span> <span class="n">Singleton</span> <span class="n">INSTANCE</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Singleton</span><span class="o">(</span><span class="o">)</span><span class="o">;</span>
+    
+    <span class="c1">//注意构造方法必须私有
+</span><span class="c1"></span>    <span class="kd">private</span> <span class="nf">Singleton</span><span class="o">(</span><span class="o">)</span><span class="o">{</span><span class="o">}</span>
+    
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Singleton</span> <span class="nf">getInstance</span><span class="o">(</span><span class="o">)</span><span class="o">{</span>
+        <span class="k">return</span> <span class="n">INSTANCE</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>优点：写法简单，就是在类加载的时候完成实例化，避免了线程同步问题。</p>
+<p>缺点：没有达到懒加载的效果，如果从始至终都未使用过这个实例，会造成内存的浪费。</p>
+<h3 id="2饿汉式静态代码块">2、饿汉式（静态代码块）</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Singleton</span><span class="o">{</span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="n">Singleton</span> <span class="n">instance</span><span class="o">;</span>
+    
+    <span class="kd">static</span><span class="o">{</span>
+        <span class="n">instance</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Singleton</span><span class="o">(</span><span class="o">)</span><span class="o">;</span>
+    <span class="o">}</span>
+    
+    <span class="kd">private</span> <span class="nf">Singleton</span><span class="o">(</span><span class="o">)</span><span class="o">{</span><span class="o">}</span>
+    
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Singleton</span> <span class="nf">getInstance</span><span class="o">(</span><span class="o">)</span><span class="o">{</span>
+        <span class="k">return</span> <span class="n">instance</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>这种方式跟第一种方式类似，都是在类加载的时候完成的，只不过将实例化的过程放在了静态代码块种，优缺点跟上面一样。</p>
+<h3 id="3懒汉式线程不安全">3、懒汉式（线程不安全）</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Singleton</span><span class="o">{</span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="n">Singleton</span> <span class="n">instance</span><span class="o">;</span>
+    
+    <span class="kd">private</span> <span class="nf">Singleton</span><span class="o">(</span><span class="o">)</span><span class="o">{</span><span class="o">}</span>
+    
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Singleton</span> <span class="nf">getInstance</span><span class="o">(</span><span class="o">)</span><span class="o">{</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">instance</span> <span class="o">=</span><span class="o">=</span> <span class="kc">null</span><span class="o">)</span><span class="o">{</span>
+            <span class="n">instance</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Singleton</span><span class="o">(</span><span class="o">)</span><span class="o">;</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="n">instance</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>这种写法在单线程环境下可以使用，但是多线程环境下显然会产生多个实例。</p>
+<h3 id="4懒汉式线程安全同步方法">4、懒汉式（线程安全，同步方法）</h3>
+<pre><code>public class Singleton{
+    private static Singleton instance;
+    
+    private Singleton(){}
+    
+    public static synchronized Singleton getInstance(){
+        if(instance == null){
+            instance = new Singleton();
+        }
+        return instance;
+    }
+}
+</code></pre><p>这种方法是对上面的线程不安全的懒汉式的改进。</p>
+<p>由于每次去获取实例的时候都会进入<code>synchronized</code>代码块而不管实例是否为null，而其实这个方法只需要执行一次实例化代码就可以，因此这样的开销非常大，所以不推荐使用。</p>
+<h3 id="5懒汉式线程安全同步代码块">5、懒汉式（线程安全，同步代码块）</h3>
+<pre><code>public class Singleton{
+    private static Singleton instance;
+    
+    private Singleton(){}
+    
+    public static Singleton getInstance(){
+        if(instance == null){
+            synchronized(Singleton.class){
+                instance = new Singleton();
+            }
+        }
+        return instance;
+    }
+}
+</code></pre><p>并不能起到线程同步的作用，跟第三种方式遇到的情形一致。假如两个线程同时进入了<code>if(instance == null)</code>代码块，那么还是会产生多个实例，因此同样不推荐使用。</p>
+<h3 id="6双重检查锁">6、双重检查锁</h3>
+<pre><code>public class Singleton{
+    private static volatile Singleton singleton;
+    
+    private Singleton(){}
+    
+    public static Singleton getInstance(){
+        if(singleton == null){
+            synchronized(Singleton.class){
+                if(singleton == null){
+                    singleton = new Singleton():
+                }
+            }
+        }
+        return singleton;
+    }
+}
+</code></pre><p>双重检查锁对于多线程开发者来说并不陌生，我们进行了两次<code>if(singleton == null)</code>判断，并通过将实例singleton设置为<code>volatile</code>变量，这样可以实现变量的可见性并且禁止编译器指令重排序造成的其它问题。关于双重检查锁的问题可以详见我的另外一篇博客：
+<img src="https://site-1258928558.cos.ap-guangzhou.myqcloud.com/linkcard.png" alt="图标"></p>
+<p>优点：线程安全，延迟加载，效率较高。</p>
+<h3 id="7静态内部类">7、静态内部类</h3>
+<pre><code>public class Singleton{
+    private Singleton(){}
+    
+    private static class SingletonInstance{
+        private static final Singleton INSTANCE = new Singleton();
+    }
+    
+    public static Singleton getInstance(){
+        return SingletonInstance.INSTANCE;
+    }
+}
+</code></pre><p>这种方式跟饿汉式方式采用的机制类似，但又有不同。两者都是采用了类装载的机制来保证初始化实例时只有一个线程。不同的地方在饿汉式方式是只要Singleton类被装载就会实例化，没有Lazy-Loading（懒加载）的作用，而静态内部类方式在Singleton类被装载时并不会立即实例化，而是在需要实例化时，调用getInstance方法，才会装载SingletonInstance类，从而完成Singleton的实例化。</p>
+<p>类的静态属性只会在第一次加载类的时候初始化，所以在这里，<strong>JVM帮助我们保证了线程的安全性，在类进行初始化时，别的线程是无法进入的。</strong></p>
+<p>优点：避免了线程不安全，延迟加载，效率高。</p>
+<h3 id="8枚举">8、枚举</h3>
+<pre><code>public enum Singleton{
+    INSTANCE;
+    public void whateverMethod(){
+        
+    }
+}
+</code></pre><p>借助JDK1.5中添加的枚举来实现单例模式。不仅能避免多线程同步问题，而且还能防止反序列化重新创建新的对象。可能是因为枚举在JDK1.5中才添加，所以在实际项目开发中，使用枚举实现单例模式很少出现。</p>]]></description>
+                
+                
+                
+                
+                
+                    
+                        
+                    
+                        
+                            
+                                
+                                
+                                
+                                    <category domain="https://example.com/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</category>
+                                
+                            
+                        
+                    
+                
+            </item>
+        
+            <item>
+                <title>单例模式</title>
+                <link>https://example.com/posts/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/</link>
+                <guid isPermaLink="true">https://example.com/posts/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/</guid>
+                <pubDate>Thu, 30 Aug 2018 01:37:56 +0800</pubDate>
+                
+                    <author>1612291475@qq.com (zyh)</author>
+                
+                <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright>
+                
+                    <description><![CDATA[<h2 id="一单例模式">一、单例模式</h2>
+<p>在标准的23种设计模式种，单例设计模式在应用中是非常常见的，而我们在学习单例模式中，一定要考虑到和多线程结合起来时可能存在的各种问题以及其解决办法，这样我们才能写出一个在多线程环境下安全、正确的单例模式。</p>
+<p>单例模式常见的有八种写法(更多时候分为六种，此处更加细分了)：</p>
+<ul>
+<li>饿汉式（静态常量）</li>
+<li>饿汉式（静态代码块）</li>
+<li>懒汉式（线程不安全）</li>
+<li>懒汉式（线程安全，同步方法）</li>
+<li>懒汉式（线程安全，同步代码块）</li>
+<li>双重检查锁</li>
+<li>静态内部类</li>
+<li>枚举</li>
+</ul>
+<hr>
+<h2 id="二单例模式的基本实现思路">二、单例模式的基本实现思路：</h2>
+<p>单例模式要求类能够有返回对象的一个引用（并且永远是同一个）和一个获得该实例的方法（必须是静态方法，往往使用<code>getInstance()</code>这个方法）</p>
+<p>单例模式的实现主要通过以下步骤：</p>
+<p>（1）将该类的构造方法定义为<strong>私有方法</strong>，这样其它的代码就无法通过调用该类的构造方法来实例化该类的对象，只有通过该类提供的静态方法来得到该类的唯一实例；</p>
+<p>（2）在该类种提供一个静态方法，当我们调用这个方法时，如果类持有的引用不为空就返回这个引用，如果类保持的引用为空就创建该类的实例并将实例的引用赋值给该类保持的引用。</p>
+<p>注意事项：单例模式在多线程的环境下必须小心使用，如果当唯一实例尚未创建时，有两个线程同时调用创建方法，那么它们同时没有检测到唯一实例的存在，从而同时各自创建了一个实例，这样就有两个实例被创建了出来，从而违反了单例模式种实例唯一的原则，解决的办法显而易见是加锁。</p>
+<h2 id="三单例模式的八种写法">三、单例模式的八种写法</h2>
+<h3 id="1饿汉式静态常量">1、饿汉式（静态常量）</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nf">singleton</span><span class="o">(</span><span class="o">)</span><span class="o">{</span>
+    <span class="kd">private</span> <span class="kd">final</span> <span class="kd">static</span> <span class="n">Singleton</span> <span class="n">INSTANCE</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Singleton</span><span class="o">(</span><span class="o">)</span><span class="o">;</span>
+    
+    <span class="c1">//注意构造方法必须私有
+</span><span class="c1"></span>    <span class="kd">private</span> <span class="nf">Singleton</span><span class="o">(</span><span class="o">)</span><span class="o">{</span><span class="o">}</span>
+    
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Singleton</span> <span class="nf">getInstance</span><span class="o">(</span><span class="o">)</span><span class="o">{</span>
+        <span class="k">return</span> <span class="n">INSTANCE</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>优点：写法简单，就是在类加载的时候完成实例化，避免了线程同步问题。</p>
+<p>缺点：没有达到懒加载的效果，如果从始至终都未使用过这个实例，会造成内存的浪费。</p>
+<h3 id="2饿汉式静态代码块">2、饿汉式（静态代码块）</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Singleton</span><span class="o">{</span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="n">Singleton</span> <span class="n">instance</span><span class="o">;</span>
+    
+    <span class="kd">static</span><span class="o">{</span>
+        <span class="n">instance</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Singleton</span><span class="o">(</span><span class="o">)</span><span class="o">;</span>
+    <span class="o">}</span>
+    
+    <span class="kd">private</span> <span class="nf">Singleton</span><span class="o">(</span><span class="o">)</span><span class="o">{</span><span class="o">}</span>
+    
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Singleton</span> <span class="nf">getInstance</span><span class="o">(</span><span class="o">)</span><span class="o">{</span>
+        <span class="k">return</span> <span class="n">instance</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>这种方式跟第一种方式类似，都是在类加载的时候完成的，只不过将实例化的过程放在了静态代码块种，优缺点跟上面一样。</p>
+<h3 id="3懒汉式线程不安全">3、懒汉式（线程不安全）</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Singleton</span><span class="o">{</span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="n">Singleton</span> <span class="n">instance</span><span class="o">;</span>
+    
+    <span class="kd">private</span> <span class="nf">Singleton</span><span class="o">(</span><span class="o">)</span><span class="o">{</span><span class="o">}</span>
+    
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Singleton</span> <span class="nf">getInstance</span><span class="o">(</span><span class="o">)</span><span class="o">{</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">instance</span> <span class="o">=</span><span class="o">=</span> <span class="kc">null</span><span class="o">)</span><span class="o">{</span>
+            <span class="n">instance</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Singleton</span><span class="o">(</span><span class="o">)</span><span class="o">;</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="n">instance</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>这种写法在单线程环境下可以使用，但是多线程环境下显然会产生多个实例。</p>
+<h3 id="4懒汉式线程安全同步方法">4、懒汉式（线程安全，同步方法）</h3>
+<pre><code>public class Singleton{
+    private static Singleton instance;
+    
+    private Singleton(){}
+    
+    public static synchronized Singleton getInstance(){
+        if(instance == null){
+            instance = new Singleton();
+        }
+        return instance;
+    }
+}
+</code></pre><p>这种方法是对上面的线程不安全的懒汉式的改进。</p>
+<p>由于每次去获取实例的时候都会进入<code>synchronized</code>代码块而不管实例是否为null，而其实这个方法只需要执行一次实例化代码就可以，因此这样的开销非常大，所以不推荐使用。</p>
+<h3 id="5懒汉式线程安全同步代码块">5、懒汉式（线程安全，同步代码块）</h3>
+<pre><code>public class Singleton{
+    private static Singleton instance;
+    
+    private Singleton(){}
+    
+    public static Singleton getInstance(){
+        if(instance == null){
+            synchronized(Singleton.class){
+                instance = new Singleton();
+            }
+        }
+        return instance;
+    }
+}
+</code></pre><p>并不能起到线程同步的作用，跟第三种方式遇到的情形一致。假如两个线程同时进入了<code>if(instance == null)</code>代码块，那么还是会产生多个实例，因此同样不推荐使用。</p>
+<h3 id="6双重检查锁">6、双重检查锁</h3>
+<pre><code>public class Singleton{
+    private static volatile Singleton singleton;
+    
+    private Singleton(){}
+    
+    public static Singleton getInstance(){
+        if(singleton == null){
+            synchronized(Singleton.class){
+                if(singleton == null){
+                    singleton = new Singleton():
+                }
+            }
+        }
+        return singleton;
+    }
+}
+</code></pre><p>双重检查锁对于多线程开发者来说并不陌生，我们进行了两次<code>if(singleton == null)</code>判断，并通过将实例singleton设置为<code>volatile</code>变量，这样可以实现变量的可见性并且禁止编译器指令重排序造成的其它问题。关于双重检查锁的问题可以详见我的另外一篇博客：
+<img src="https://site-1258928558.cos.ap-guangzhou.myqcloud.com/linkcard.png" alt="图标"></p>
+<p>优点：线程安全，延迟加载，效率较高。</p>
+<h3 id="7静态内部类">7、静态内部类</h3>
+<pre><code>public class Singleton{
+    private Singleton(){}
+    
+    private static class SingletonInstance{
+        private static final Singleton INSTANCE = new Singleton();
+    }
+    
+    public static Singleton getInstance(){
+        return SingletonInstance.INSTANCE;
+    }
+}
+</code></pre><p>这种方式跟饿汉式方式采用的机制类似，但又有不同。两者都是采用了类装载的机制来保证初始化实例时只有一个线程。不同的地方在饿汉式方式是只要Singleton类被装载就会实例化，没有Lazy-Loading（懒加载）的作用，而静态内部类方式在Singleton类被装载时并不会立即实例化，而是在需要实例化时，调用getInstance方法，才会装载SingletonInstance类，从而完成Singleton的实例化。</p>
+<p>类的静态属性只会在第一次加载类的时候初始化，所以在这里，<strong>JVM帮助我们保证了线程的安全性，在类进行初始化时，别的线程是无法进入的。</strong></p>
+<p>优点：避免了线程不安全，延迟加载，效率高。</p>
+<h3 id="8枚举">8、枚举</h3>
+<pre><code>public enum Singleton{
+    INSTANCE;
+    public void whateverMethod(){
+        
+    }
+}
+</code></pre><p>借助JDK1.5中添加的枚举来实现单例模式。不仅能避免多线程同步问题，而且还能防止反序列化重新创建新的对象。可能是因为枚举在JDK1.5中才添加，所以在实际项目开发中，使用枚举实现单例模式很少出现。</p>]]></description>
+                
+                
+                
+                
+                
+                    
+                        
+                    
+                        
+                            
+                                
+                                
+                                
+                                    <category domain="https://example.com/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</category>
+                                
+                            
+                        
+                    
+                
+            </item>
+        
+            <item>
+                <title>Theme preview</title>
+                <link>https://example.com/posts/even-preview/</link>
+                <guid isPermaLink="true">https://example.com/posts/even-preview/</guid>
+                <pubDate>Tue, 10 Jul 2018 00:00:00 +0800</pubDate>
+                
+                    <author>1612291475@qq.com (zyh)</author>
+                
+                <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright>
+                
+                    <description><![CDATA[<blockquote>
+<p>Based on <a href="https://github.com/facelessuser/MarkdownPreview/blob/master/examples/test.md">MarkdownPreview test.md</a>.</p>
+</blockquote>
+<ul>
+<li><a href="https://www.xiachufang.com/recipe/100410171/">【靠谱的自制卤水的做法视频_做法步骤】_下厨房</a></li>
+</ul>
+<p><img src="https://www.xianmin.org/image/cook/lurou-00.jpg" alt="img"></p>
+<p>卤水</p>
+<p><img src="https://www.xianmin.org/image/cook/lurou-01.jpg" alt="img"></p>
+<p>卤好的鸡爪</p>
+]]></description>
+                
+                
+                
+                
+                
+                    
+                        
+                            
+                                
+                                
+                                
+                                    <category domain="https://example.com/categories/theme-preview/">Theme preview</category>
+                                
+                            
+                        
+                    
+                        
+                            
+                                
+                                
+                                
+                                    <category domain="https://example.com/tags/theme-preview/">Theme preview</category>
+                                
+                            
+                                
+                                
+                                
+                                    <category domain="https://example.com/tags/tag-3/">tag-3</category>
+                                
+                            
+                        
+                    
+                
+            </item>
+        
+    </channel>
+</rss>
