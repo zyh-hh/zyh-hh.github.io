@@ -9,21 +9,19 @@
     <channel>
         <title>zyhhh</title>
         <link>https://example.com/</link>
-        <description>MemE 是一个强大且可高度定制的 GoHugo 博客主题，专为个人博客设计。</description>
+        <description>zyhhh的个人博客。</description>
         <generator>Hugo 0.64.1 https://gohugo.io/</generator>
         
             <language>zh-CN</language>
         
         
-            <managingEditor>1612291475@qq.com (zyh)</managingEditor>
+            <managingEditor>1612291475@qq.com (zyhhh)</managingEditor>
         
         
-            <webMaster>1612291475@qq.com (zyh)</webMaster>
+            <webMaster>1612291475@qq.com (zyhhh)</webMaster>
         
         
-            <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright>
-        
-        <lastBuildDate>Fri, 10 Apr 2020 17:07:34 +0800</lastBuildDate>
+        <lastBuildDate>Sun, 12 Apr 2020 18:10:59 +0800</lastBuildDate>
         
             <atom:link rel="self" type="application/rss+xml" href="https://example.com/rss.xml" />
         
@@ -34,9 +32,9 @@
                 <guid isPermaLink="true">https://example.com/posts/live2d/</guid>
                 <pubDate>Fri, 30 Aug 2019 01:53:34 +0800</pubDate>
                 
-                    <author>1612291475@qq.com (zyh)</author>
+                    <author>1612291475@qq.com (zyhhh)</author>
                 
-                <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright>
+                
                 
                     <description><![CDATA[<h2 id="live2d-是什么">Live2d 是什么</h2>
 <p>Live2d 的官网地址：https://www.live2d.com/zh-CHS/</p>
@@ -200,9 +198,9 @@
                 <guid isPermaLink="true">https://example.com/posts/picgo-&#43;-gitee%E5%AE%9E%E7%8E%B0markdown%E5%9B%BE%E5%BA%8A/</guid>
                 <pubDate>Thu, 30 Aug 2018 16:01:23 +0800</pubDate>
                 
-                    <author>1612291475@qq.com (zyh)</author>
+                    <author>1612291475@qq.com (zyhhh)</author>
                 
-                <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright>
+                
                 
                     <description><![CDATA[<p>咱们写博客的时候，总是需要插入图片的，图片存在本地的话上传到博客网站去就没法显示了，就算一个图一个图的复制粘贴上去，想移植到其他的博客网站，图就会失效，我们就需要图床</p>
 <blockquote>
@@ -335,9 +333,9 @@
                 <guid isPermaLink="true">https://example.com/posts/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F-%E5%89%AF%E6%9C%AC-2/</guid>
                 <pubDate>Thu, 30 Aug 2018 01:37:56 +0800</pubDate>
                 
-                    <author>1612291475@qq.com (zyh)</author>
+                    <author>1612291475@qq.com (zyhhh)</author>
                 
-                <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright>
+                
                 
                     <description><![CDATA[<h2 id="一单例模式">一、单例模式</h2>
 <p>在标准的23种设计模式种，单例设计模式在应用中是非常常见的，而我们在学习单例模式中，一定要考虑到和多线程结合起来时可能存在的各种问题以及其解决办法，这样我们才能写出一个在多线程环境下安全、正确的单例模式。</p>
@@ -556,9 +554,9 @@
                 <guid isPermaLink="true">https://example.com/posts/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F-%E5%89%AF%E6%9C%AC/</guid>
                 <pubDate>Thu, 30 Aug 2018 01:37:56 +0800</pubDate>
                 
-                    <author>1612291475@qq.com (zyh)</author>
+                    <author>1612291475@qq.com (zyhhh)</author>
                 
-                <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright>
+                
                 
                     <description><![CDATA[<h2 id="一单例模式">一、单例模式</h2>
 <p>在标准的23种设计模式种，单例设计模式在应用中是非常常见的，而我们在学习单例模式中，一定要考虑到和多线程结合起来时可能存在的各种问题以及其解决办法，这样我们才能写出一个在多线程环境下安全、正确的单例模式。</p>
@@ -777,9 +775,9 @@
                 <guid isPermaLink="true">https://example.com/posts/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/</guid>
                 <pubDate>Thu, 30 Aug 2018 01:37:56 +0800</pubDate>
                 
-                    <author>1612291475@qq.com (zyh)</author>
+                    <author>1612291475@qq.com (zyhhh)</author>
                 
-                <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright>
+                
                 
                     <description><![CDATA[<h2 id="一单例模式">一、单例模式</h2>
 <p>在标准的23种设计模式种，单例设计模式在应用中是非常常见的，而我们在学习单例模式中，一定要考虑到和多线程结合起来时可能存在的各种问题以及其解决办法，这样我们才能写出一个在多线程环境下安全、正确的单例模式。</p>
@@ -998,9 +996,9 @@
                 <guid isPermaLink="true">https://example.com/posts/even-preview/</guid>
                 <pubDate>Tue, 10 Jul 2018 00:00:00 +0800</pubDate>
                 
-                    <author>1612291475@qq.com (zyh)</author>
+                    <author>1612291475@qq.com (zyhhh)</author>
                 
-                <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)</copyright>
+                
                 
                     <description><![CDATA[<blockquote>
 <p>Based on <a href="https://github.com/facelessuser/MarkdownPreview/blob/master/examples/test.md">MarkdownPreview test.md</a>.</p>
