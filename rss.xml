@@ -7,7 +7,7 @@
 
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>zyhhh</title>
+        <title>小青蛙的草丛</title>
         <link>https://example.com/</link>
         <description>zyhhh的个人博客。</description>
         <generator>Hugo 0.64.1 https://gohugo.io/</generator>
@@ -15,26 +15,868 @@
             <language>zh-CN</language>
         
         
-            <managingEditor>1612291475@qq.com (zyhhh)</managingEditor>
+            <managingEditor>1612291475@qq.com (小青蛙)</managingEditor>
         
         
-            <webMaster>1612291475@qq.com (zyhhh)</webMaster>
+            <webMaster>1612291475@qq.com (小青蛙)</webMaster>
         
         
-        <lastBuildDate>Sun, 12 Apr 2020 18:10:59 +0800</lastBuildDate>
+            <copyright>[赣ICP备20004830号](http://www.beian.miit.gov.cn/)</copyright>
+        
+        <lastBuildDate>Wed, 15 Apr 2020 15:09:54 +0800</lastBuildDate>
         
             <atom:link rel="self" type="application/rss+xml" href="https://example.com/rss.xml" />
         
         
             <item>
+                <title>2020开始</title>
+                <link>https://example.com/posts/2020%E5%BC%80%E5%A7%8B/</link>
+                <guid isPermaLink="true">https://example.com/posts/2020%E5%BC%80%E5%A7%8B/</guid>
+                <pubDate>Wed, 01 Jan 2020 06:07:00 +0800</pubDate>
+                
+                    <author>1612291475@qq.com (小青蛙)</author>
+                
+                <copyright>[赣ICP备20004830号](http://www.beian.miit.gov.cn/)</copyright>
+                
+                    <description><![CDATA[<p><img src="https://gitee.com/zyh-h/blogimg/raw/master/img/20200413001816.png" alt=""></p>
+<blockquote>
+<p>2019就这样过去了，2020开始了</p>
+</blockquote>
+<p>2019年是博客开始的第一年，时间过得真的是太快了，在这一年里，有些目标完成了，有些却还没开始，生活总是差强人意，感觉我也做得不够好，不想太过感伤，希望新的一年能给我带来好运吧！</p>
+<p><img src="https://gitee.com/zyh-h/blogimg/raw/master/img/tokio1.jpg" alt=""></p>
+<p>最后，祝大家新年快乐！</p>]]></description>
+                
+                
+                
+                
+                
+                    
+                        
+                            
+                                
+                                
+                                
+                                    <category domain="https://example.com/categories/%E9%9A%8F%E7%AC%94/">随笔</category>
+                                
+                            
+                        
+                    
+                        
+                            
+                                
+                                
+                                
+                                    <category domain="https://example.com/tags/%E9%9A%8F%E7%AC%94/">随笔</category>
+                                
+                            
+                        
+                    
+                
+            </item>
+        
+            <item>
+                <title>单例模式</title>
+                <link>https://example.com/posts/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/</link>
+                <guid isPermaLink="true">https://example.com/posts/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/</guid>
+                <pubDate>Tue, 02 Apr 2019 01:37:56 +0800</pubDate>
+                
+                    <author>1612291475@qq.com (小青蛙)</author>
+                
+                <copyright>[赣ICP备20004830号](http://www.beian.miit.gov.cn/)</copyright>
+                
+                    <description><![CDATA[<h2 id="一单例模式">一、单例模式</h2>
+<p>在标准的23种设计模式种，单例设计模式在应用中是非常常见的，而我们在学习单例模式中，一定要考虑到和多线程结合起来时可能存在的各种问题以及其解决办法，这样我们才能写出一个在多线程环境下安全、正确的单例模式。</p>
+<p>单例模式常见的有八种写法(更多时候分为六种，此处更加细分了)：</p>
+<ul>
+<li>饿汉式（静态常量）</li>
+<li>饿汉式（静态代码块）</li>
+<li>懒汉式（线程不安全）</li>
+<li>懒汉式（线程安全，同步方法）</li>
+<li>懒汉式（线程安全，同步代码块）</li>
+<li>双重检查锁</li>
+<li>静态内部类</li>
+<li>枚举</li>
+</ul>
+<hr>
+<h2 id="二单例模式的基本实现思路">二、单例模式的基本实现思路：</h2>
+<p>单例模式要求类能够有返回对象的一个引用（并且永远是同一个）和一个获得该实例的方法（必须是静态方法，往往使用<code>getInstance()</code>这个方法）</p>
+<p>单例模式的实现主要通过以下步骤：</p>
+<p>（1）将该类的构造方法定义为<strong>私有方法</strong>，这样其它的代码就无法通过调用该类的构造方法来实例化该类的对象，只有通过该类提供的静态方法来得到该类的唯一实例；</p>
+<p>（2）在该类种提供一个静态方法，当我们调用这个方法时，如果类持有的引用不为空就返回这个引用，如果类保持的引用为空就创建该类的实例并将实例的引用赋值给该类保持的引用。</p>
+<p>注意事项：单例模式在多线程的环境下必须小心使用，如果当唯一实例尚未创建时，有两个线程同时调用创建方法，那么它们同时没有检测到唯一实例的存在，从而同时各自创建了一个实例，这样就有两个实例被创建了出来，从而违反了单例模式种实例唯一的原则，解决的办法显而易见是加锁。</p>
+<h2 id="三单例模式的八种写法">三、单例模式的八种写法</h2>
+<h3 id="1饿汉式静态常量">1、饿汉式（静态常量）</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nf">singleton</span><span class="o">(</span><span class="o">)</span><span class="o">{</span>
+    <span class="kd">private</span> <span class="kd">final</span> <span class="kd">static</span> <span class="n">Singleton</span> <span class="n">INSTANCE</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Singleton</span><span class="o">(</span><span class="o">)</span><span class="o">;</span>
+    
+    <span class="c1">//注意构造方法必须私有
+</span><span class="c1"></span>    <span class="kd">private</span> <span class="nf">Singleton</span><span class="o">(</span><span class="o">)</span><span class="o">{</span><span class="o">}</span>
+    
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Singleton</span> <span class="nf">getInstance</span><span class="o">(</span><span class="o">)</span><span class="o">{</span>
+        <span class="k">return</span> <span class="n">INSTANCE</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>优点：写法简单，就是在类加载的时候完成实例化，避免了线程同步问题。</p>
+<p>缺点：没有达到懒加载的效果，如果从始至终都未使用过这个实例，会造成内存的浪费。</p>
+<h3 id="2饿汉式静态代码块">2、饿汉式（静态代码块）</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Singleton</span><span class="o">{</span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="n">Singleton</span> <span class="n">instance</span><span class="o">;</span>
+    
+    <span class="kd">static</span><span class="o">{</span>
+        <span class="n">instance</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Singleton</span><span class="o">(</span><span class="o">)</span><span class="o">;</span>
+    <span class="o">}</span>
+    
+    <span class="kd">private</span> <span class="nf">Singleton</span><span class="o">(</span><span class="o">)</span><span class="o">{</span><span class="o">}</span>
+    
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Singleton</span> <span class="nf">getInstance</span><span class="o">(</span><span class="o">)</span><span class="o">{</span>
+        <span class="k">return</span> <span class="n">instance</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>这种方式跟第一种方式类似，都是在类加载的时候完成的，只不过将实例化的过程放在了静态代码块种，优缺点跟上面一样。</p>
+<h3 id="3懒汉式线程不安全">3、懒汉式（线程不安全）</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Singleton</span><span class="o">{</span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="n">Singleton</span> <span class="n">instance</span><span class="o">;</span>
+    
+    <span class="kd">private</span> <span class="nf">Singleton</span><span class="o">(</span><span class="o">)</span><span class="o">{</span><span class="o">}</span>
+    
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Singleton</span> <span class="nf">getInstance</span><span class="o">(</span><span class="o">)</span><span class="o">{</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">instance</span> <span class="o">=</span><span class="o">=</span> <span class="kc">null</span><span class="o">)</span><span class="o">{</span>
+            <span class="n">instance</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Singleton</span><span class="o">(</span><span class="o">)</span><span class="o">;</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="n">instance</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>这种写法在单线程环境下可以使用，但是多线程环境下显然会产生多个实例。</p>
+<h3 id="4懒汉式线程安全同步方法">4、懒汉式（线程安全，同步方法）</h3>
+<pre><code>public class Singleton{
+    private static Singleton instance;
+    
+    private Singleton(){}
+    
+    public static synchronized Singleton getInstance(){
+        if(instance == null){
+            instance = new Singleton();
+        }
+        return instance;
+    }
+}
+</code></pre><p>这种方法是对上面的线程不安全的懒汉式的改进。</p>
+<p>由于每次去获取实例的时候都会进入<code>synchronized</code>代码块而不管实例是否为null，而其实这个方法只需要执行一次实例化代码就可以，因此这样的开销非常大，所以不推荐使用。</p>
+<h3 id="5懒汉式线程安全同步代码块">5、懒汉式（线程安全，同步代码块）</h3>
+<pre><code>public class Singleton{
+    private static Singleton instance;
+    
+    private Singleton(){}
+    
+    public static Singleton getInstance(){
+        if(instance == null){
+            synchronized(Singleton.class){
+                instance = new Singleton();
+            }
+        }
+        return instance;
+    }
+}
+</code></pre><p>并不能起到线程同步的作用，跟第三种方式遇到的情形一致。假如两个线程同时进入了<code>if(instance == null)</code>代码块，那么还是会产生多个实例，因此同样不推荐使用。</p>
+<h3 id="6双重检查锁">6、双重检查锁</h3>
+<pre><code>public class Singleton{
+    private static volatile Singleton singleton;
+    
+    private Singleton(){}
+    
+    public static Singleton getInstance(){
+        if(singleton == null){
+            synchronized(Singleton.class){
+                if(singleton == null){
+                    singleton = new Singleton():
+                }
+            }
+        }
+        return singleton;
+    }
+}
+</code></pre><p>双重检查锁对于多线程开发者来说并不陌生，我们进行了两次<code>if(singleton == null)</code>判断，并通过将实例singleton设置为<code>volatile</code>变量，这样可以实现变量的可见性并且禁止编译器指令重排序造成的其它问题。</p>
+<p>优点：线程安全，延迟加载，效率较高。</p>
+<h3 id="7静态内部类">7、静态内部类</h3>
+<pre><code>public class Singleton{
+    private Singleton(){}
+    
+    private static class SingletonInstance{
+        private static final Singleton INSTANCE = new Singleton();
+    }
+    
+    public static Singleton getInstance(){
+        return SingletonInstance.INSTANCE;
+    }
+}
+</code></pre><p>这种方式跟饿汉式方式采用的机制类似，但又有不同。两者都是采用了类装载的机制来保证初始化实例时只有一个线程。不同的地方在饿汉式方式是只要Singleton类被装载就会实例化，没有Lazy-Loading（懒加载）的作用，而静态内部类方式在Singleton类被装载时并不会立即实例化，而是在需要实例化时，调用getInstance方法，才会装载SingletonInstance类，从而完成Singleton的实例化。</p>
+<p>类的静态属性只会在第一次加载类的时候初始化，所以在这里，<strong>JVM帮助我们保证了线程的安全性，在类进行初始化时，别的线程是无法进入的。</strong></p>
+<p>优点：避免了线程不安全，延迟加载，效率高。</p>
+<h3 id="8枚举">8、枚举</h3>
+<pre><code>public enum Singleton{
+    INSTANCE;
+    public void whateverMethod(){
+        
+    }
+}
+</code></pre><p>借助JDK1.5中添加的枚举来实现单例模式。不仅能避免多线程同步问题，而且还能防止反序列化重新创建新的对象。可能是因为枚举在JDK1.5中才添加，所以在实际项目开发中，使用枚举实现单例模式很少出现。</p>]]></description>
+                
+                
+                
+                
+                
+                    
+                        
+                            
+                                
+                                
+                                
+                                    <category domain="https://example.com/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</category>
+                                
+                            
+                        
+                    
+                        
+                            
+                                
+                                
+                                
+                                    <category domain="https://example.com/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</category>
+                                
+                            
+                                
+                                
+                                
+                                    <category domain="https://example.com/tags/java/">java</category>
+                                
+                            
+                        
+                    
+                
+            </item>
+        
+            <item>
+                <title>HashMap源码分析</title>
+                <link>https://example.com/posts/hashmap%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/</link>
+                <guid isPermaLink="true">https://example.com/posts/hashmap%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/</guid>
+                <pubDate>Thu, 14 Mar 2019 16:01:23 +0800</pubDate>
+                
+                    <author>1612291475@qq.com (小青蛙)</author>
+                
+                <copyright>[赣ICP备20004830号](http://www.beian.miit.gov.cn/)</copyright>
+                
+                    <description><![CDATA[<blockquote>
+<p><code>HashMap</code>最早出现在JDK1.2中，底层基于散列算法（Hash）实现。并且<code>HashMap</code>允许null键和null值，是线程非安全类，在多线程环境下可能会存在问题，与之对应的是<code>HashTable</code>类，<code>HashTable</code>是线程安全的<code>HashMap</code>，但是在之前由于HashTable方法都是用<code>synchronized</code>实现，开销比较大，所以在多线程时反而并不使用<code>HashTable</code>，而是使用<code>CurrentHashMap</code>。在JDK1.8后，<code>HashMap</code>和<code>CurrentHashMap</code>的数据结构都有了新变化，即加入了红黑树。</p>
+</blockquote>
+<h3 id="mag_right--jdk17及之前版本中的hashmap数据结构">:mag_right:  JDK1.7及之前版本中的HashMap数据结构</h3>
+<p>在JDK1.6，1.7中，HashMap都是基于“拉链法”实现，即数组+链表的形式，通过不同的hash值来对键分配不同的桶（bucket）。数据节点为Entry节点，数据插入使用头插法。使用头插法在扩容的过程可能会造成里面有一个resize方法，它又调用了一个transfer方法，把里面的Entry进行一个rehash,在这个过程中可能会造成一个链表的循环，可能在下一次get时出现死循环的情况</p>
+<h3 id="jdk18版本的hashmap数据结构">JDK1.8版本的HashMap数据结构</h3>
+<p><a href="https://blogimage-1258928558.cos.ap-guangzhou.myqcloud.com/HashMap%E6%BA%90%E7%A0%81/HashMap.png"><img src="https://blogimage-1258928558.cos.ap-guangzhou.myqcloud.com/HashMap%E6%BA%90%E7%A0%81/HashMap.png" alt="img"></a></p>
+<p>在JDK1.8中对HashMap的源码进行了优化，在JDK1.7中，HashMap处理“碰撞”的时候，都是采用链表来存储，当碰撞的节点很多的时候，查询时间复杂度从原来的O(1)变成了O(N)。而JDK1.8中，为了优化这种情况，HashMap处理“碰撞”增加了红黑树这种数据结构，当碰撞节点较少时，采样链表存储，当较大（默认是超过8）时，变成使用红黑树（特点是查询时间是O(logN)）存储。</p>
+<h4 id="结构">结构</h4>
+<p><code>Node</code>是HashMap中的一个静态内部类：</p>
+<p>复制</p>
+<pre><code>//Node是单向链表，实现了Map.Entry接口
+static class Node&lt;K,V&gt; implements Map.Entry&lt;K,V&gt; {
+ 	final int hash; //哈希
+ 	final K key;  //键值对
+   V value;
+ 	Node&lt;K,V&gt; next;  //下一个节点
+    
+	 //构造函数
+  Node(int hash, K key, V value, Node&lt;K,V&gt; next) {
+	 this.hash = hash;
+ 	 this.key = key;
+ 	 this.value = value;
+ 	 this.next = next;
+ 	}
+
+ 	// getter and setter ... toString ...
+ 	public final K getKey() { return key; }
+ 	public final V getValue() { return value; }
+ 	public final String toString() { return key + &quot;=&quot; + value; }
+
+	public final int hashCode() {
+ 	return Objects.hashCode(key) ^ Objects.hashCode(value);
+   }
+
+ public final V setValue(V newValue) {
+        V oldValue = value;
+        value = newValue;
+        return oldValue;
+ }
+
+ public final boolean equals(Object o) {
+ 	if (o == this)
+ 	   return true;
+ 	if (o instanceof Map.Entry) {
+ 	   Map.Entry&lt;?,?&gt; e = (Map.Entry&lt;?,?&gt;)o;
+ 	if (Objects.equals(key, e.getKey()) &amp;&amp;
+ 	   Objects.equals(value, e.getValue()))
+ 	   return true;
+  }
+    return false;
+  }
+}
+</code></pre><p><code>TreeNode</code>是红黑树的数据结构：</p>
+<p>复制</p>
+<pre><code>static final class TreeNode&lt;K,V&gt; extends LinkedHashMap.Entry&lt;K,V&gt; {
+ 	TreeNode&lt;K,V&gt; parent; // red-black tree links
+ 	TreeNode&lt;K,V&gt; left;
+ 	TreeNode&lt;K,V&gt; right;
+ 	TreeNode&lt;K,V&gt; prev; // needed to unlink next upon deletion
+ 	boolean red;
+ 	TreeNode(int hash, K key, V val, Node&lt;K,V&gt; next) {
+ 	super(hash, key, val, next);
+ }
+
+ /**
+     * Returns root of tree containing this node.
+     */
+ final TreeNode&lt;K,V&gt; root() {
+ 	for (TreeNode&lt;K,V&gt; r = this, p;;) {
+ 		if ((p = r.parent) == null)
+ 			return r;
+         r = p;
+ 	}
+ }
+</code></pre><h4 id="类定义">类定义</h4>
+<p>复制</p>
+<pre><code>public class HashMap&lt;K,V&gt; extends AbstractMap&lt;K,V&gt; implements Map&lt;K,V&gt;, Cloneable, Serializable
+</code></pre><h4 id="变量">变量</h4>
+<p>复制</p>
+<pre><code>/**
+ * 默认初始容量16(必须是2的幂次方)
+ */
+static final int DEFAULT_INITIAL_CAPACITY = 1 &lt;&lt; 4;
+
+/**
+ * 最大容量，2的30次方
+ */
+static final int MAXIMUM_CAPACITY = 1 &lt;&lt; 30;
+
+/**
+ * 默认加载因子，用来计算threshold
+ */
+static final float DEFAULT_LOAD_FACTOR = 0.75f;
+
+/**
+ * 链表转成树的阈值，当桶中链表长度大于8时转成树 
+   threshold = capacity * loadFactor
+ */
+static final int TREEIFY_THRESHOLD = 8;
+
+/**
+ * 进行resize操作时，若桶中数量少于6则从树转成链表
+ */
+static final int UNTREEIFY_THRESHOLD = 6;
+
+/**
+ * 桶中结构转化为红黑树对应的table的最小大小
+   当需要将解决 hash 冲突的链表转变为红黑树时，
+   需要判断下此时数组容量，
+   若是由于数组容量太小（小于　MIN_TREEIFY_CAPACITY　）
+   导致的 hash 冲突太多，则不进行链表转变为红黑树操作，
+   转为利用　resize() 函数对　hashMap 扩容
+ */
+static final int MIN_TREEIFY_CAPACITY = 64;
+/**
+ 保存Node&lt;K,V&gt;节点的数组
+ 该表在首次使用时初始化，并根据需要调整大小。 分配时，
+ 长度始终是2的幂。
+ */
+transient Node&lt;K,V&gt;[] table;
+
+/**
+ * 存放具体元素的集
+ */
+transient Set&lt;Map.Entry&lt;K,V&gt;&gt; entrySet;
+
+/**
+ * 记录 hashMap 当前存储的元素的数量
+ */
+transient int size;
+
+/**
+ * 每次更改map结构的计数器
+ */
+transient int modCount;
+
+/**
+ * 临界值 当实际大小(容量*填充因子)超过临界值时，会进行扩容
+ */
+int threshold;
+
+/**
+ * 负载因子：要调整大小的下一个大小值（容量*加载因子）。
+ */
+final float loadFactor;
+</code></pre><h4 id="构造方法">构造方法</h4>
+<p>复制</p>
+<pre><code>public HashMap(int initialCapacity, float loadFactor) {
+    // 初始容量不能小于0，否则报错
+    if (initialCapacity &lt; 0)
+        throw new IllegalArgumentException(&quot;Illegal initial capacity: &quot; + initialCapacity);
+    // 初始容量不能大于最大值，否则为最大值
+    if (initialCapacity &gt; MAXIMUM_CAPACITY)
+        initialCapacity = MAXIMUM_CAPACITY;
+    
+    //负载因子不能小于或等于0，不能为非数字
+    if (loadFactor &lt;= 0 || Float.isNaN(loadFactor))
+        throw new IllegalArgumentException(&quot;Illegal load factor: &quot; + loadFactor);
+    
+    // 初始化负载因子                                        
+    this.loadFactor = loadFactor;
+    
+    // 初始化threshold大小
+    this.threshold = tableSizeFor(initialCapacity);    
+}
+
+public HashMap(int initialCapacity) {
+    // 调用HashMap(int, float)型构造函数
+    this(initialCapacity, DEFAULT_LOAD_FACTOR);
+}
+
+public HashMap() {
+    // 初始化填充因子，此处说明HashMap也是采用延迟加载的方式，首次使用时才会进行加载
+    this.loadFactor = DEFAULT_LOAD_FACTOR;
+        
+public HashMap(Map&lt;? extends K, ? extends V&gt; m) {
+    // 初始化填充因子
+    this.loadFactor = DEFAULT_LOAD_FACTOR;
+    // 将m中的所有元素添加至HashMap中
+    putMapEntries(m, false);
+}
+    
+//putMapEntries(Map m, boolean evict)函数将m的所有元素存入本HashMap实例中。
+final void putMapEntries(Map&lt;? extends K, ? extends V&gt; m, boolean evict) {
+int s = m.size();
+if (s &gt; 0) {
+   // 判断table是否已经初始化
+   if (table == null) { // pre-size
+       // 未初始化，s为m的实际元素个数
+       float ft = ((float)s / loadFactor) + 1.0F;
+       int t = ((ft &lt; (float)MAXIMUM_CAPACITY) ? (int)ft : MAXIMUM_CAPACITY);
+            // 计算得到的t大于阈值，则初始化阈值
+            if (t &gt; threshold)
+                threshold = tableSizeFor(t);
+        }
+        // 已初始化，并且m元素个数大于阈值，进行扩容处理
+        else if (s &gt; threshold)
+            resize();
+        // 将m中的所有元素添加至HashMap中
+        for (Map.Entry&lt;? extends K, ? extends V&gt; e : m.entrySet()) {
+            K key = e.getKey();
+            V value = e.getValue();
+            putVal(hash(key), key, value, false, evict);
+        }
+    }
+}
+</code></pre><h4 id="tablesizefor方法详解">tableSizeFor方法详解</h4>
+<p>用位运算找到大于或等于cap的最小2的整次幂的数，比如10，则返回16。</p>
+<p>复制</p>
+<pre><code>static final int tableSizeFor(int cap) {
+        int n = cap - 1;
+        n |= n &gt;&gt;&gt; 1;
+        n |= n &gt;&gt;&gt; 2;
+        n |= n &gt;&gt;&gt; 4;
+        n |= n &gt;&gt;&gt; 8;
+        n |= n &gt;&gt;&gt; 16;
+        return (n &lt; 0) ? 1 : (n &gt;= MAXIMUM_CAPACITY) ? MAXIMUM_CAPACITY : n + 1;
+    }
+</code></pre><ol>
+<li>让cap-1再赋值给n的目的是使得找到的目标值大于或等于原值。例如二进制<code>0100</code>,十进制是4,若不减1而直接操作，答案是<code>0001 0000</code>十进制是16，明显不符合预期。</li>
+<li>对n右移1位：001xx…xxx，再位或：011xx…xxx</li>
+<li>对n右移2位：00011…xxx，再位或：01111…xxx</li>
+<li>对n右移4位…</li>
+<li>对n右移8位…</li>
+<li>对n右移16位,因为int最大就<code>2^32</code>所以移动1、2、4、8、16位并取位或,会将最高位的1后面的位全变为1。</li>
+<li>再让结果n+1，即得到了2的整数次幂的值了。</li>
+</ol>
+<p>附带一个实例：</p>
+<p><a href="https://blogimage-1258928558.cos.ap-guangzhou.myqcloud.com/HashMap%E6%BA%90%E7%A0%81/tableSizeFor.jpg"><img src="https://blogimage-1258928558.cos.ap-guangzhou.myqcloud.com/HashMap%E6%BA%90%E7%A0%81/tableSizeFor.jpg" alt="img"></a></p>
+<h4 id="loadfactory负载因子">loadFactory负载因子</h4>
+<p><strong>对于HashMap来说，负载因子是一个很重要的参数，该参数反应了HashMap桶数组的使用情况，通过调节负载因子，可以使HashMap时间和空间复杂度上有不同的表现。</strong></p>
+<p>当我们调低负载因子时，HashMap 所能容纳的键值对数量变少。扩容时，重新将键值对存储新的桶数组里，键的键之间产生的碰撞会下降，链表长度变短。此时，HashMap 的增删改查等操作的效率将会变高，这里是典型的拿空间换时间。</p>
+<p>相反，如果增加负载因子（负载因子可以大于1），HashMap 所能容纳的键值对数量变多，空间利用率高，但碰撞率也高。这意味着链表长度变长，效率也随之降低，这种情况是拿时间换空间。至于负载因子怎么调节，这个看使用场景了。</p>
+<p>一般情况下，我们用默认值就可以了。大多数情况下0.75在时间跟空间代价上达到了平衡所以不建议修改。</p>
+<h4 id="查找">查找</h4>
+<p>复制</p>
+<pre><code>public V get(Object key) {
+   Node&lt;K,V&gt; e;
+   return (e = getNode(hash(key), key)) == null ? null : e.value;
+}
+// HashMap中的Hash方法
+static final int hash(Object key) {
+   int h;
+ // 拿到key的hash值后与其无符号右移16位取“与”
+ // 这种方式能混合原始hash值的高位和低位，并且混合后的低位混杂了高位的特征
+ // 主要是考虑数组的table的length比较小的时候也能保证考虑到高低bit都能参与到hash中，并且效率很高
+ // 通过这种方式，让高位数据与低位数据进行异或，以此加大低位信息的随机性，变相的让高位数据参与到计算中。
+  return (key == null) ? 0 : (h = key.hashCode()) ^ (h &gt;&gt;&gt; 16);
+}
+
+final Node&lt;K,V&gt; getNode(int hash, Object key) {
+ 	Node&lt;K,V&gt;[] tab; 
+ 	Node&lt;K,V&gt; first, e; 
+ 	int n; K k;
+ // 定位键值对所在桶的位置
+ if ((tab = table) != null &amp;&amp; (n = tab.length) &gt; 0 &amp;&amp;  (first = tab[(n - 1) &amp; hash]) != null) {
+ // 判断桶中第一项(数组元素)相等
+ if (first.hash == hash &amp;&amp; // always check first node
+     ((k = first.key) == key || (key != null &amp;&amp; key.equals(k))))
+ 		return first;
+ // 桶中不止一个结点
+ if ((e = first.next) != null) {
+ // 是否是红黑树，是的话调用getTreeNode方法
+ if (first instanceof TreeNode)
+ 	return ((TreeNode&lt;K,V&gt;)first).getTreeNode(hash, key);
+ // 不是红黑树的话，在链表中遍历查找    
+ do {
+ if (e.hash == hash &amp;&amp; ((k = e.key) == key || (key != null &amp;&amp; key.equals(k))))
+ 	return e;
+ } while ((e = e.next) != null);
+ 	}
+ }
+ 	return null;
+}
+</code></pre><p>HashMap：如何有效减少碰撞</p>
+<ol>
+<li>扰动函数：促使元素位置分布均匀，减少碰撞几率</li>
+<li>使用final对象，并采用合适的equals()和hashCode()方法</li>
+</ol>
+<p>注意：</p>
+<ol>
+<li>
+<p>HashMap的hash算法(<code>hash()</code>方法)。</p>
+</li>
+<li>
+<p><code>(n - 1) &amp; hash</code>等价于对 length 取余。</p>
+<h4 id="添加">添加</h4>
+</li>
+</ol>
+<p>复制</p>
+<pre><code>public V put(K key, V value) {
+   // 调用hash(key)方法来计算hash 
+   return putVal(hash(key), key, value, false, true);
+}
+
+final V putVal(int hash, K key, V value, boolean onlyIfAbsent,boolean evict) {
+   Node&lt;K,V&gt;[] tab; 
+   Node&lt;K,V&gt; p; 
+   int n, i;
+   // 容量初始化：当table为空，则调用resize()方法来初始化容器，并且resize()方法可以扩容
+   if ((tab = table) == null || (n = tab.length) == 0)
+        n = (tab = resize()).length;
+   //确定元素存放在哪个桶中，桶为空，新生成结点放入桶中
+   if ((p = tab[i = (n - 1) &amp; hash]) == null)
+        tab[i] = newNode(hash, key, value, null);
+   else {
+   Node&lt;K,V&gt; e; K k;
+   // 比较桶中第一个元素(数组中的结点)的hash值相等，key相等
+   if (p.hash == hash &amp;&amp;  ((k = p.key) == key || (key != null &amp;&amp; key.equals(k))))
+   //如果键的值以及节点 hash 等于链表中的第一个键值对节点时，则将 e 指向该键值对
+       e = p;
+   // 如果桶中的引用类型为 TreeNode，则调用红黑树的插入方法
+   else if (p instanceof TreeNode)
+   // 放入树中
+        e = ((TreeNode&lt;K,V&gt;)p).putTreeVal(this, tab, hash, key, value);
+   else {
+   //对链表进行遍历，并统计链表长度
+   for (int binCount = 0; ; ++binCount) {
+   // 到达链表的尾部
+   if ((e = p.next) == null) {
+   //在尾部插入新结点
+       p.next = newNode(hash, key, value, null);
+   // 如果结点数量达到阈值，转化为红黑树
+   if (binCount &gt;= TREEIFY_THRESHOLD - 1) // -1 for 1st
+       treeifyBin(tab, hash);
+       break;
+    }
+   // 判断链表中结点的key值与插入的元素的key值是否相等
+   if (e.hash == hash &amp;&amp;  ((k = e.key) == key || (key != null &amp;&amp; key.equals(k))))
+        break;
+        p = e;
+      }
+   }
+   //判断要插入的键值对是否存在 HashMap 中
+   if (e != null) { // existing mapping for key
+       V oldValue = e.value;
+   // onlyIfAbsent 表示是否仅在 oldValue 为 null 的情况下更新键值对的值
+   if (!onlyIfAbsent || oldValue == null)
+       e.value = value;
+       afterNodeAccess(e);
+       return oldValue;
+    }
+ }
+   ++modCount;
+   // 键值对数量超过阈值时，则进行扩容
+   if (++size &gt; threshold)
+     resize();
+     afterNodeInsertion(evict);
+     return null;
+}
+</code></pre><p>事实上，<code>new HashMap();</code>完成后，如果没有<code>put</code>操作，是不会分配存储空间的。</p>
+<p>HashMap：put方法的逻辑</p>
+<ol>
+<li>如果HashMap未被初始化过，则初始化</li>
+<li>对key求hash值，然后再计算下标</li>
+<li>如果没有碰撞，直接放入桶中</li>
+<li>如果碰撞了，以链表的方式链接到后面</li>
+<li>如果链表长度超过阈值，就把链表转换成红黑树</li>
+<li>如果链表的长度低于6，就把红黑树转回链表</li>
+<li>如果节点已经存在就替换旧值</li>
+<li>如果桶满了（容量16*负载因子0.75），就需要resize（扩容2倍后重排）</li>
+</ol>
+<h4 id="扩容机制">扩容机制</h4>
+<p>在 HashMap 中，桶数组的长度均是2的幂，阈值大小为桶数组长度与负载因子的乘积。当 HashMap 中的键值对数量超过阈值时，进行扩容。 HashMap 按当前桶数组长度的2倍进行扩容，阈值也变为原来的2倍（如果计算过程中，阈值溢出归零，则按阈值公式重新计算）。扩容之后，要重新计算键值对的位置，并把它们移动到合适的位置上去。</p>
+<p>复制</p>
+<pre><code>final Node&lt;K,V&gt;[] resize() {
+ // 拿到数组桶
+ Node&lt;K,V&gt;[] oldTab = table;
+ int oldCap = (oldTab == null) ? 0 : oldTab.length;
+ int oldThr = threshold;
+ int newCap, newThr = 0;
+ // 如果数组桶的容量大与0
+ if (oldCap &gt; 0) {
+ // 如果比最大值还大，则赋值为最大值
+ if (oldCap &gt;= MAXIMUM_CAPACITY) {
+            threshold = Integer.MAX_VALUE;
+ return oldTab;
+ }
+ // 如果扩容后小于最大值 而且 旧数组桶大于初始容量16， 阈值左移1(扩大2倍)
+ else if ((newCap = oldCap &lt;&lt; 1) &lt; MAXIMUM_CAPACITY &amp;&amp;
+                 oldCap &gt;= DEFAULT_INITIAL_CAPACITY)
+            newThr = oldThr &lt;&lt; 1; // double threshold
+ }
+ // 如果数组桶容量&lt;=0 且 旧阈值 &gt;0
+ else if (oldThr &gt; 0) // initial capacity was placed in threshold
+ // 新容量=旧阈值
+        newCap = oldThr;
+ // 如果数组桶容量&lt;=0 且 旧阈值 &lt;=0
+ else { // zero initial threshold signifies using defaults
+ // 新容量=默认容量
+        newCap = DEFAULT_INITIAL_CAPACITY;
+ // 新阈值= 负载因子*默认容量
+        newThr = (int)(DEFAULT_LOAD_FACTOR * DEFAULT_INITIAL_CAPACITY);
+ }
+ // 如果新阈值为0
+ if (newThr == 0) {
+ // 重新计算阈值
+ float ft = (float)newCap * loadFactor;
+        newThr = (newCap &lt; MAXIMUM_CAPACITY &amp;&amp; ft &lt; (float)MAXIMUM_CAPACITY ?
+ (int)ft : Integer.MAX_VALUE);
+ }
+ // 更新阈值
+    threshold = newThr;
+ @SuppressWarnings({&quot;rawtypes&quot;,&quot;unchecked&quot;})
+ // 创建新数组
+ Node&lt;K,V&gt;[] newTab = (Node&lt;K,V&gt;[])new Node[newCap];
+ // 覆盖数组桶    
+    table = newTab;
+ // 如果旧数组桶不是空，则遍历桶数组，并将键值对映射到新的桶数组中
+ if (oldTab != null) {
+ for (int j = 0; j &lt; oldCap; ++j) {
+ Node&lt;K,V&gt; e;
+ if ((e = oldTab[j]) != null) {
+                oldTab[j] = null;
+ if (e.next == null)
+                    newTab[e.hash &amp; (newCap - 1)] = e;
+ // 如果是红黑树
+ else if (e instanceof TreeNode)
+ // 重新映射时，需要对红黑树进行拆分
+ ((TreeNode&lt;K,V&gt;)e).split(this, newTab, j, oldCap);
+ else { // preserve order
+ // 如果不是红黑树，则按链表处理
+ Node&lt;K,V&gt; loHead = null, loTail = null;
+ Node&lt;K,V&gt; hiHead = null, hiTail = null;
+ Node&lt;K,V&gt; next;
+ // 遍历链表，并将链表节点按原顺序进行分组
+ do {
+ next = e.next;
+ if ((e.hash &amp; oldCap) == 0) {
+ if (loTail == null)
+     loHead = e;
+ else
+     loTail.next = e;
+     loTail = e;
+ }
+ else {
+ if (hiTail == null)
+     hiHead = e;
+ else
+     hiTail.next = e;
+     hiTail = e;
+   }
+ } while ((e = next) != null);
+ // 将分组后的链表映射到新桶中
+ if (loTail != null) {
+     loTail.next = null;
+     newTab[j] = loHead;
+ }
+ if (hiTail != null) {
+     hiTail.next = null;
+     newTab[j + oldCap] = hiHead;
+ 		}
+ 	   }
+ 	  }
+    }
+ }
+ 	return newTab;
+}
+</code></pre><p>说明：进行扩容，会伴随着一次重新hash分配，并且会遍历hash表中所有的元素，是非常耗时的。在编写程序中，要尽量避免resize。</p>
+<p>HashMap扩容问题：</p>
+<ol>
+<li>多线程环境下，调整大小会存在条件竞争，容易造成死锁</li>
+<li>rehashing是一个比较耗时的过程</li>
+</ol>
+<p>整体步骤：</p>
+<ol>
+<li>计算新桶数组的容量 newCap 和新阈值 newThr</li>
+<li>根据计算出的 newCap 创建新的桶数组，桶数组 table 也是在这里进行初始化的</li>
+<li>将键值对节点重新映射到新的桶数组里。如果节点是 TreeNode 类型，则需要拆分红黑树。如果是普通节点，则节点按原顺序进行分组。</li>
+</ol>
+<p>总结起来，一共有三种<strong>扩容方式</strong>：</p>
+<ol>
+<li>使用默认构造方法初始化HashMap。从前文可以知道HashMap在一开始初始化的时候会返回一个空的table，并且thershold为0。因此第一次扩容的容量为默认值<code>DEFAULT_INITIAL_CAPACITY</code>也就是16。同时<code>threshold = DEFAULT_INITIAL_CAPACITY * DEFAULT_LOAD_FACTOR = 12</code>。</li>
+<li>指定初始容量的构造方法初始化<code>HashMap</code>。那么从下面源码可以看到初始容量会等于<code>threshold</code>，接着<code>threshold = 当前的容量（threshold） * DEFAULT_LOAD_FACTOR</code>。</li>
+<li>HashMap不是第一次扩容。如果<code>HashMap</code>已经扩容过的话，那么每次table的容量以及<code>threshold</code>量为原有的两倍。</li>
+</ol>
+<p>细心点的人会很好奇，为什么要判断loadFactor为0呢？</p>
+<blockquote>
+<p>loadFactor小数位为 0，整数位可被2整除且大于等于8时，在某次计算中就可能会导致 newThr 溢出归零。</p>
+</blockquote>
+<h3 id="疑问和进阶">疑问和进阶</h3>
+<p><strong>1. JDK1.7是基于数组+单链表实现（为什么不用双链表）</strong></p>
+<p>首先，用链表是为了解决hash冲突。</p>
+<p>单链表能实现为什么要用双链表呢?(双链表需要更大的存储空间)</p>
+<p><strong>2. 为什么要用红黑树，而不用平衡二叉树？</strong></p>
+<blockquote>
+<p>插入效率比平衡二叉树高，查询效率比普通二叉树高。所以选择性能相对折中的红黑树。</p>
+</blockquote>
+<p><strong>3. 重写对象的Equals方法时，要重写hashCode方法，为什么？跟HashMap有什么关系？</strong></p>
+<p>equals与hashcode间的关系:</p>
+<ol>
+<li>如果两个对象相同（即用equals比较返回true），那么它们的hashCode值一定要相同；</li>
+<li>如果两个对象的hashCode相同，它们并不一定相同(即用equals比较返回false)</li>
+</ol>
+<p>因为在 HashMap 的链表结构中遍历判断的时候，特定情况下重写的 equals 方法比较对象是否相等的业务逻辑比较复杂，循环下来更是影响查找效率。所以这里把 hashcode 的判断放在前面，只要 hashcode 不相等就玩儿完，不用再去调用复杂的 equals 了。很多程度地提升 HashMap 的使用效率。</p>
+<p>所以重写 hashcode 方法是为了让我们能够正常使用 HashMap 等集合类，因为 HashMap 判断对象是否相等既要比较 hashcode 又要使用 equals 比较。而这样的实现是为了提高 HashMap 的效率。</p>
+<p><strong>4. HashMap为什么不直接使用对象的原始hash值呢?</strong></p>
+<p>复制</p>
+<pre><code>static final int hash(Object key) {
+ int h;
+ return (key == null) ? 0 : (h = key.hashCode()) ^ (h &gt;&gt;&gt; 16);
+}
+</code></pre><p>我们发现，HashMap的哈希值是通过上面的方式获取，而不是通过<code>key.hashCode()</code>方法获取。</p>
+<p>原因：</p>
+<blockquote>
+<p>通过移位和异或运算，可以让 hash 变得更复杂，进而影响 hash 的分布性。</p>
+</blockquote>
+<p><strong>5. 既然红黑树那么好，为啥hashmap不直接采用红黑树，而是当大于8个的时候才转换红黑树？</strong></p>
+<p>因为红黑树需要进行左旋，右旋操作， 而单链表不需要。</p>
+<p>以下都是单链表与红黑树结构对比。</p>
+<p>如果元素小于8个，查询成本高，新增成本低。</p>
+<p>如果元素大于8个，查询成本低，新增成本高。</p>
+<p>至于为什么选数字8，是大佬折中衡量的结果-.-，就像loadFactor默认值0.75一样。</p>
+]]></description>
+                
+                
+                
+                
+                
+                    
+                        
+                            
+                                
+                                
+                                
+                                    <category domain="https://example.com/categories/java/">java</category>
+                                
+                            
+                        
+                    
+                        
+                            
+                                
+                                
+                                
+                                    <category domain="https://example.com/tags/java%E5%A4%9A%E7%BA%BF%E7%A8%8B/">java多线程</category>
+                                
+                            
+                                
+                                
+                                
+                                    <category domain="https://example.com/tags/java/">java</category>
+                                
+                            
+                        
+                    
+                
+            </item>
+        
+            <item>
                 <title>给博客添加一个live2d看板娘</title>
                 <link>https://example.com/posts/live2d/</link>
                 <guid isPermaLink="true">https://example.com/posts/live2d/</guid>
-                <pubDate>Fri, 30 Aug 2019 01:53:34 +0800</pubDate>
+                <pubDate>Sat, 02 Mar 2019 01:53:34 +0800</pubDate>
                 
-                    <author>1612291475@qq.com (zyhhh)</author>
+                    <author>1612291475@qq.com (小青蛙)</author>
                 
-                
+                <copyright>[赣ICP备20004830号](http://www.beian.miit.gov.cn/)</copyright>
                 
                     <description><![CDATA[<h2 id="live2d-是什么">Live2d 是什么</h2>
 <p>Live2d 的官网地址：https://www.live2d.com/zh-CHS/</p>
@@ -193,14 +1035,517 @@
             </item>
         
             <item>
+                <title>给博客添加评论Valine</title>
+                <link>https://example.com/posts/%E7%BB%99%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9Fvaline/</link>
+                <guid isPermaLink="true">https://example.com/posts/%E7%BB%99%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9Fvaline/</guid>
+                <pubDate>Sat, 02 Mar 2019 01:37:56 +0800</pubDate>
+                
+                    <author>1612291475@qq.com (小青蛙)</author>
+                
+                <copyright>[赣ICP备20004830号](http://www.beian.miit.gov.cn/)</copyright>
+                
+                    <description><![CDATA[<blockquote>
+<p>Valine - 一款快速、简洁且高效的无后端评论系统。</p>
+<p>Valine 诞生于2017年8月7日，是一款基于Leancloud的快速、简洁且高效的无后端评论系统。</p>
+</blockquote>
+<p>理论上支持但不限于静态博客，目前已有Hexo、Hugo、Typecho等博客程序在使用Valine。</p>
+<p>特性：</p>
+<ul>
+<li>快速</li>
+<li>安全</li>
+<li>Emoji 😉</li>
+<li>无后端实现</li>
+<li>MarkDown 全语法支持</li>
+<li>轻量易用(~15kb gzipped)</li>
+</ul>
+<p><strong>Tips:</strong></p>
+<ul>
+<li>整个过程，是以Meme主题为例的，其它主题操作大同小异。</li>
+<li>配置之前应该先阅读<a href="https://valine.js.org/quickstart.html">Valine快速开始</a></li>
+</ul>
+<h2 id="leancloud相关配置">Leancloud相关配置</h2>
+<p>评论系统依赖于leancloud，所以需要先在leancloud中进行相关的准备工作。</p>
+<ul>
+<li>
+<p><a href="https://leancloud.cn/dashboard/login.html#/signin">登录</a> 或 <a href="https://leancloud.cn/dashboard/login.html#/signup">注册</a> LeanCloud</p>
+</li>
+<li>
+<p>登录成功后，进入后台点击左上角的创建应用：</p>
+<p><img src="https://pichome-1254392422.cos.ap-chengdu.myqcloud.com/20180708153104380829479.png" alt="img"></p>
+</li>
+<li>
+<p>创建好应用，进入应用，左边栏找到设置，然后点击应用Key，此时记录出现的App ID和App Key，后面配置文件中会用到：</p>
+<p><img src="https://pichome-1254392422.cos.ap-chengdu.myqcloud.com/20180708153104457148134.png" alt="img"></p>
+</li>
+<li>
+<p>因为评论和文章阅读数统计依赖于存储，所以还需要建立两个新的存储</p>
+<pre><code>Class
+</code></pre><p>左边栏找到并点击存储，点击创建Class:</p>
+<p><img src="https://pichome-1254392422.cos.ap-chengdu.myqcloud.com/20180708153104475972323.png" alt="img"></p>
+</li>
+<li>
+<p>创建两个存储Class，分别命名为: <code>Counter</code> 和 <code>Comment</code>;</p>
+</li>
+<li>
+<p>还需要为应用添加安全域名，左边栏点击设置，找到安全中心，点击后会看到安全域名设置框，输入博客使用的域名，点击保存即可：</p>
+<p><img src="https://pichome-1254392422.cos.ap-chengdu.myqcloud.com/20180708153104592457270.png" alt="img"></p>
+</li>
+</ul>
+<h2 id="configtoml添加参数">config.toml添加参数</h2>
+<p>为了使配置更灵活，将 <strong>Valine</strong> 中大部分初始化参数项均设置为配置文件中的参数项，在 <strong>config.toml</strong> 的适当位置，比如我的文件中 <strong>[params.gitment]</strong> 的下面：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-toml" data-lang="toml">  <span class="p">[</span><span class="nx">params</span><span class="p">.</span><span class="nx">gitment</span><span class="p">]</span>          <span class="c"># Gitment is a comment system based on GitHub issues. see https://github.com/imsun/gitment</span>
+    <span class="nx">owner</span> <span class="p">=</span> <span class="s2">&#34;&#34;</span>              <span class="c"># Your GitHub ID</span>
+    <span class="nx">repo</span> <span class="p">=</span> <span class="s2">&#34;&#34;</span>               <span class="c"># The repo to store comments</span>
+    <span class="nx">clientId</span> <span class="p">=</span> <span class="s2">&#34;&#34;</span>           <span class="c"># Your client ID</span>
+    <span class="nx">clientSecret</span> <span class="p">=</span> <span class="s2">&#34;&#34;</span>       <span class="c"># Your client secret</span>
+
+  <span class="c"># 这里添加Valine的相关参数</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>添加 <strong>Valine</strong> 参数项：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-toml" data-lang="toml">  <span class="c"># Valine.</span>
+  <span class="c"># You can get your appid and appkey from https://leancloud.cn</span>
+  <span class="c"># more info please open https://valine.js.org</span>
+  <span class="p">[</span><span class="nx">params</span><span class="p">.</span><span class="nx">valine</span><span class="p">]</span>
+    <span class="nx">enable</span> <span class="p">=</span> <span class="kc">true</span>
+    <span class="nx">appId</span> <span class="p">=</span> <span class="s1">&#39;你的appId&#39;</span>
+    <span class="nx">appKey</span> <span class="p">=</span> <span class="s1">&#39;你的appKey&#39;</span>
+    <span class="nx">notify</span> <span class="p">=</span> <span class="kc">false</span>  <span class="c"># mail notifier , https://github.com/xCss/Valine/wiki</span>
+    <span class="nx">verify</span> <span class="p">=</span> <span class="kc">false</span> <span class="c"># Verification code</span>
+    <span class="nx">avatar</span> <span class="p">=</span> <span class="s1">&#39;mm&#39;</span> 
+    <span class="nx">placeholder</span> <span class="p">=</span> <span class="s1">&#39;说点什么吧...&#39;</span>
+    <span class="nx">visitor</span> <span class="p">=</span> <span class="kc">true</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>上面几项内容的含义，这里简单一说，具体还是要看 <a href="https://valine.js.org/configuration.html">Valine官网中配置相关的内容</a>：</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>enable</td>
+<td>这是用于主题中配置的，不是官方Valine的参数，<strong>true</strong>时控制开启此评论系统</td>
+</tr>
+<tr>
+<td>appId</td>
+<td>这是在 <a href="https://leancloud.cn/">leancloud</a> 后台应用中获取的，也就是上面提到的 <strong>App ID</strong></td>
+</tr>
+<tr>
+<td>appKey</td>
+<td>这是在 <a href="https://leancloud.cn/">leancloud</a> 后台应用中获取的，也就是上面提到的 <strong>App Key</strong></td>
+</tr>
+<tr>
+<td>notify</td>
+<td>用于控制是否开启邮件通知功能，具体参考<a href="https://github.com/xCss/Valine/wiki/Valine-%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E9%82%AE%E4%BB%B6%E6%8F%90%E9%86%92%E8%AE%BE%E7%BD%AE">邮件提醒配置</a></td>
+</tr>
+<tr>
+<td>verify</td>
+<td>用于控制是否开启评论验证码功能</td>
+</tr>
+<tr>
+<td>avatar</td>
+<td>用于配置评论项中用户头像样式，有多种选择：mm, identicon, monsterid, wavatar, retro, hide。详细参考：<a href="https://valine.js.org/avatar.html">头像配置</a></td>
+</tr>
+<tr>
+<td>placehoder</td>
+<td>评论框的提示符</td>
+</tr>
+<tr>
+<td>visitor</td>
+<td>控制是否开启文章阅读数的统计功能i, 详情阅读<a href="https://valine.js.org/visitor.html">文章阅读数统计</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="修改主题文件">修改主题文件</h2>
+<p>主要是修改主题中评论相关的布局文件 <code>themes/even/layouts/partials/comments.html</code>，按照 <a href="https://valine.js.org/quickstart.html">Valine快速开始</a> 添加 <strong>Valine</strong> 相关代码，找到以下位置，大概55～81行的位置：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html">  <span class="c">&lt;!--</span><span class="c"> gitment </span><span class="c">--&gt;</span>
+  {{- if .Site.Params.gitment.enable -}}
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;comments-gitment&#34;</span><span class="p"></span><span class="p">&gt;</span><span class="p">&lt;</span><span class="p">/</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="c">&lt;!--</span><span class="c">这里省略了部分代码</span><span class="c">--&gt;</span>
+  <span class="p">&lt;</span><span class="nt">noscript</span><span class="p"></span><span class="p">&gt;</span>Please enable JavaScript to view the <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;https://github.com/imsun/gitment&#34;</span><span class="p"></span><span class="p">&gt;</span>comments powered by gitment.<span class="p">&lt;</span><span class="p">/</span><span class="nt">a</span><span class="p">&gt;</span><span class="p">&lt;</span><span class="p">/</span><span class="nt">noscript</span><span class="p">&gt;</span>
+  {{- end }}
+
+  <span class="c">&lt;!--</span><span class="c">这个位置添加Valine相关代码</span><span class="c">--&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>添加的 <strong>Valine</strong> 评论的代码如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html">  <span class="c">&lt;!--</span><span class="c"> valine </span><span class="c">--&gt;</span>
+  {{- if .Site.Params.valine.enable -}}
+  <span class="c">&lt;!--</span><span class="c"> id 将作为查询条件 </span><span class="c">--&gt;</span>
+  <span class="p">&lt;</span><span class="nt">span</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;{{ .URL | relURL }}&#34;</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;leancloud_visitors&#34;</span> <span class="na">data-flag-title</span><span class="o">=</span><span class="s">&#34;{{ .Title }}&#34;</span><span class="p"></span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;post-meta-item-text&#34;</span><span class="p"></span><span class="p">&gt;</span>文章阅读量 <span class="p">&lt;</span><span class="p">/</span><span class="nt">span</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;leancloud-visitors-count&#34;</span><span class="p"></span><span class="p">&gt;</span>1000000<span class="p">&lt;</span><span class="p">/</span><span class="nt">span</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">p</span><span class="p"></span><span class="p">&gt;</span><span class="p">&lt;</span><span class="p">/</span><span class="nt">p</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="p">/</span><span class="nt">span</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;vcomments&#34;</span><span class="p"></span><span class="p">&gt;</span><span class="p">&lt;</span><span class="p">/</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;//cdn1.lncld.net/static/js/3.0.4/av-min.js&#34;</span><span class="p"></span><span class="p">&gt;</span><span class="p">&lt;</span><span class="p">/</span><span class="nt">script</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#39;//unpkg.com/valine/dist/Valine.min.js&#39;</span><span class="p"></span><span class="p">&gt;</span><span class="p">&lt;</span><span class="p">/</span><span class="nt">script</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text/javascript&#34;</span><span class="p"></span><span class="p">&gt;</span>
+    <span class="k">new</span> <span class="nx">Valine</span><span class="p">(</span><span class="p">{</span>
+        <span class="nx">el</span><span class="o">:</span> <span class="s1">&#39;#vcomments&#39;</span> <span class="p">,</span>
+        <span class="nx">appId</span><span class="o">:</span> <span class="s1">&#39;{{ .Site.Params.valine.appId }}&#39;</span><span class="p">,</span>
+        <span class="nx">appKey</span><span class="o">:</span> <span class="s1">&#39;{{ .Site.Params.valine.appKey }}&#39;</span><span class="p">,</span>
+        <span class="nx">notify</span><span class="o">:</span> <span class="p">{</span><span class="p">{</span> <span class="p">.</span><span class="nx">Site</span><span class="p">.</span><span class="nx">Params</span><span class="p">.</span><span class="nx">valine</span><span class="p">.</span><span class="nx">notify</span> <span class="p">}</span><span class="p">}</span><span class="p">,</span> 
+        <span class="nx">verify</span><span class="o">:</span> <span class="p">{</span><span class="p">{</span> <span class="p">.</span><span class="nx">Site</span><span class="p">.</span><span class="nx">Params</span><span class="p">.</span><span class="nx">valine</span><span class="p">.</span><span class="nx">verify</span> <span class="p">}</span><span class="p">}</span><span class="p">,</span> 
+        <span class="nx">avatar</span><span class="o">:</span><span class="s1">&#39;{{ .Site.Params.valine.avatar }}&#39;</span><span class="p">,</span> 
+        <span class="nx">placeholder</span><span class="o">:</span> <span class="s1">&#39;{{ .Site.Params.valine.placeholder }}&#39;</span><span class="p">,</span>
+        <span class="nx">visitor</span><span class="o">:</span> <span class="p">{</span><span class="p">{</span> <span class="p">.</span><span class="nx">Site</span><span class="p">.</span><span class="nx">Params</span><span class="p">.</span><span class="nx">valine</span><span class="p">.</span><span class="nx">visitor</span> <span class="p">}</span><span class="p">}</span>
+    <span class="p">}</span><span class="p">)</span><span class="p">;</span>
+  <span class="p">&lt;</span><span class="p">/</span><span class="nt">script</span><span class="p">&gt;</span>
+  {{- end }}
+</code></pre></td></tr></table>
+</div>
+</div><p>可以看到上述代码中引用了配置文件中的相关参数，这样以后修改配置就不用修改代码了，只需要改配置文件 <code>config.toml</code>，另外注意到的是，我也添加了文章阅读数统计的显示内容。将配置文件中 <strong>valine</strong> 配置的 <code>eanble</code> 设置为 <code>true</code> ，本地测试一下，正常的话，打开一篇文章会看到：</p>
+<p><img src="https://pichome-1254392422.cos.ap-chengdu.myqcloud.com/20180708153104555886981.png" alt="img"></p>
+<p>此时，生成静态博客文件，部署到自己的托管平台，正常的话打开博客中的一篇文章，就可以看到正常的文章计数和评论框了，此时随便评论一条，验证一下，评论如果成功，可以去leancloud后台看一下 <code>Comment</code> 和 <code>Counter</code>存储中新加了相应网址的条目。</p>]]></description>
+                
+                
+                
+                
+                
+                    
+                        
+                            
+                                
+                                
+                                
+                                    <category domain="https://example.com/categories/%E5%8D%9A%E5%AE%A2/">博客</category>
+                                
+                            
+                        
+                    
+                        
+                            
+                                
+                                
+                                
+                                    <category domain="https://example.com/tags/%E5%8D%9A%E5%AE%A2/">博客</category>
+                                
+                            
+                        
+                    
+                
+            </item>
+        
+            <item>
+                <title>Jsoup爬虫入门</title>
+                <link>https://example.com/posts/jsoup%E7%88%AC%E8%99%AB%E5%85%A5%E9%97%A8-%E5%89%AF%E6%9C%AC/</link>
+                <guid isPermaLink="true">https://example.com/posts/jsoup%E7%88%AC%E8%99%AB%E5%85%A5%E9%97%A8-%E5%89%AF%E6%9C%AC/</guid>
+                <pubDate>Thu, 14 Feb 2019 16:01:23 +0800</pubDate>
+                
+                    <author>1612291475@qq.com (小青蛙)</author>
+                
+                <copyright>[赣ICP备20004830号](http://www.beian.miit.gov.cn/)</copyright>
+                
+                    <description><![CDATA[<p>jsoup是一款Java的HTML解析器，主要用来对HTML解析。</p>
+<h2 id="一导入依赖">一.导入依赖</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="o">&lt;</span><span class="n">dependency</span><span class="o">&gt;</span>
+ <span class="o">&lt;</span><span class="n">groupId</span><span class="o">&gt;</span><span class="n">org</span><span class="o">.</span><span class="na">jsoup</span><span class="o">&lt;</span><span class="o">/</span><span class="n">groupId</span><span class="o">&gt;</span>
+ <span class="o">&lt;</span><span class="n">artifactId</span><span class="o">&gt;</span><span class="n">jsoup</span><span class="o">&lt;</span><span class="o">/</span><span class="n">artifactId</span><span class="o">&gt;</span>
+ <span class="o">&lt;</span><span class="n">version</span><span class="o">&gt;</span><span class="n">1</span><span class="o">.</span><span class="na">10</span><span class="o">.</span><span class="na">2</span><span class="o">&lt;</span><span class="o">/</span><span class="n">version</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="o">/</span><span class="n">dependency</span><span class="o">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="二爬取数据">二.爬取数据</h2>
+<p>新建一个HtmlParseUtil工具类</p>
+<h3 id="1获取请求需要联网">1.获取请求（需要联网）</h3>
+<p><img src="https://gitee.com/zyh-h/blogimg/raw/master/img/20200412235228.png" alt=""></p>
+<p>2.用Jsoup将HTML转化为Doucument对象</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java">        <span class="n">String</span> <span class="n">url</span> <span class="o">=</span> <span class="s">&#34;https://search.jd.com/Search?keyword=keyword&#34;</span><span class="o">;</span>
+        <span class="n">Document</span> <span class="n">document</span> <span class="o">=</span> <span class="n">Jsoup</span><span class="o">.</span><span class="na">parse</span><span class="o">(</span><span class="k">new</span> <span class="n">URL</span><span class="o">(</span><span class="n">url</span><span class="o">)</span><span class="o">,</span> <span class="n">20000</span><span class="o">)</span><span class="o">;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="3获取需要的节点属性">3.获取需要的节点属性</h3>
+<p><img src="https://gitee.com/zyh-h/blogimg/raw/master/img/20200412235258.png" alt=""></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="n">Element</span> <span class="n">element</span> <span class="o">=</span> <span class="n">document</span><span class="o">.</span><span class="na">getElementById</span><span class="o">(</span><span class="s">&#34;J_goodsList&#34;</span><span class="o">)</span><span class="o">;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>输出看是否成功获取</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">element</span><span class="o">.</span><span class="na">html</span><span class="o">(</span><span class="o">)</span><span class="o">)</span><span class="o">;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>运行结果</p>
+<p><img src="https://gitee.com/zyh-h/blogimg/raw/master/img/20200412235357.png" alt=""></p>
+<p>成功获取到该节点属性，分析一下html,发现自己所需要爬取的内容都在该节点的li元素中</p>
+<p><img src="https://gitee.com/zyh-h/blogimg/raw/master/img/20200412235418.png" alt=""></p>
+<p>获取所有的li元素，并获取元素中的内容</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="n">Elements</span> <span class="n">elements</span> <span class="o">=</span> <span class="n">element</span><span class="o">.</span><span class="na">getElementsByTag</span><span class="o">(</span><span class="s">&#34;li&#34;</span><span class="o">)</span><span class="o">;</span>
+<span class="k">for</span> <span class="o">(</span><span class="n">Element</span> <span class="n">element1</span> <span class="o">:</span> <span class="n">elements</span><span class="o">)</span> <span class="o">{</span>
+     <span class="c1">//图片特别多的网站，懒加载,图片路径一般不放在src里，分析html发现放在source-data-lazy-img下
+</span><span class="c1"></span>     <span class="n">String</span> <span class="n">img</span> <span class="o">=</span> <span class="n">element1</span><span class="o">.</span><span class="na">getElementsByTag</span><span class="o">(</span><span class="s">&#34;img&#34;</span><span class="o">)</span><span class="o">.</span><span class="na">eq</span><span class="o">(</span><span class="n">0</span><span class="o">)</span><span class="o">.</span><span class="na">attr</span><span class="o">(</span><span class="s">&#34;source-data-lazy-img&#34;</span><span class="o">)</span><span class="o">;</span>
+     <span class="n">String</span> <span class="n">price</span><span class="o">=</span> <span class="n">element1</span><span class="o">.</span><span class="na">getElementsByClass</span><span class="o">(</span><span class="s">&#34;p-price&#34;</span><span class="o">)</span><span class="o">.</span><span class="na">eq</span><span class="o">(</span><span class="n">0</span><span class="o">)</span><span class="o">.</span><span class="na">text</span><span class="o">(</span><span class="o">)</span><span class="o">;</span>
+     <span class="n">String</span> <span class="n">name</span> <span class="o">=</span> <span class="n">element1</span><span class="o">.</span><span class="na">getElementsByClass</span><span class="o">(</span><span class="s">&#34;p-name&#34;</span><span class="o">)</span><span class="o">.</span><span class="na">eq</span><span class="o">(</span><span class="n">0</span><span class="o">)</span><span class="o">.</span><span class="na">text</span><span class="o">(</span><span class="o">)</span><span class="o">;</span>
+     <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;==========================&#34;</span><span class="o">)</span><span class="o">;</span>
+     <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">img</span><span class="o">)</span><span class="o">;</span>
+     <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">name</span><span class="o">)</span><span class="o">;</span>
+     <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">price</span><span class="o">)</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>运行</p>
+<p><img src="https://gitee.com/zyh-h/blogimg/raw/master/img/20200412235452.png" alt=""></p>
+<p>成功爬取到想要获取的信息</p>
+<p>项目代码</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">HtmlParseUtil</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[</span><span class="o">]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span><span class="o">{</span>        
+        <span class="n">String</span> <span class="n">url</span> <span class="o">=</span> <span class="s">&#34;https://search.jd.com/Search?keyword=keyword&#34;</span><span class="o">;</span>
+        <span class="n">Document</span> <span class="n">document</span> <span class="o">=</span> <span class="n">Jsoup</span><span class="o">.</span><span class="na">parse</span><span class="o">(</span><span class="k">new</span> <span class="n">URL</span><span class="o">(</span><span class="n">url</span><span class="o">)</span><span class="o">,</span> <span class="n">20000</span><span class="o">)</span><span class="o">;</span>
+        <span class="n">Element</span> <span class="n">element</span> <span class="o">=</span> <span class="n">document</span><span class="o">.</span><span class="na">getElementById</span><span class="o">(</span><span class="s">&#34;J_goodsList&#34;</span><span class="o">)</span><span class="o">;</span>
+<span class="c1">//      System.out.println(element.html());
+</span><span class="c1"></span>        <span class="n">Elements</span> <span class="n">elements</span> <span class="o">=</span> <span class="n">element</span><span class="o">.</span><span class="na">getElementsByTag</span><span class="o">(</span><span class="s">&#34;li&#34;</span><span class="o">)</span><span class="o">;</span>
+        <span class="k">for</span> <span class="o">(</span><span class="n">Element</span> <span class="n">element1</span> <span class="o">:</span> <span class="n">elements</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">String</span> <span class="n">img</span> <span class="o">=</span> <span class="n">element1</span><span class="o">.</span><span class="na">getElementsByTag</span><span class="o">(</span><span class="s">&#34;img&#34;</span><span class="o">)</span><span class="o">.</span><span class="na">eq</span><span class="o">(</span><span class="n">0</span><span class="o">)</span><span class="o">.</span><span class="na">attr</span><span class="o">(</span><span class="s">&#34;source-data-lazy-img&#34;</span><span class="o">)</span><span class="o">;</span>
+            <span class="n">String</span> <span class="n">price</span><span class="o">=</span> <span class="n">element1</span><span class="o">.</span><span class="na">getElementsByClass</span><span class="o">(</span><span class="s">&#34;p-price&#34;</span><span class="o">)</span><span class="o">.</span><span class="na">eq</span><span class="o">(</span><span class="n">0</span><span class="o">)</span><span class="o">.</span><span class="na">text</span><span class="o">(</span><span class="o">)</span><span class="o">;</span>
+            <span class="n">String</span> <span class="n">name</span> <span class="o">=</span> <span class="n">element1</span><span class="o">.</span><span class="na">getElementsByClass</span><span class="o">(</span><span class="s">&#34;p-name&#34;</span><span class="o">)</span><span class="o">.</span><span class="na">eq</span><span class="o">(</span><span class="n">0</span><span class="o">)</span><span class="o">.</span><span class="na">text</span><span class="o">(</span><span class="o">)</span><span class="o">;</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;==========================&#34;</span><span class="o">)</span><span class="o">;</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">img</span><span class="o">)</span><span class="o">;</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">name</span><span class="o">)</span><span class="o">;</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">price</span><span class="o">)</span><span class="o">;</span>
+        <span class="o">}</span>
+
+    <span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div>]]></description>
+                
+                
+                
+                
+                
+                    
+                        
+                            
+                                
+                                
+                                
+                                    <category domain="https://example.com/categories/java/">java</category>
+                                
+                            
+                        
+                    
+                        
+                            
+                                
+                                
+                                
+                                    <category domain="https://example.com/tags/%E7%88%AC%E8%99%AB/">爬虫</category>
+                                
+                            
+                                
+                                
+                                
+                                    <category domain="https://example.com/tags/java/">java</category>
+                                
+                            
+                        
+                    
+                
+            </item>
+        
+            <item>
+                <title>SpringBoot入门(一)：认识SpingBoot</title>
+                <link>https://example.com/posts/springboot%E5%85%A5%E9%97%A8%E4%B8%80%E8%AE%A4%E8%AF%86spingboot/</link>
+                <guid isPermaLink="true">https://example.com/posts/springboot%E5%85%A5%E9%97%A8%E4%B8%80%E8%AE%A4%E8%AF%86spingboot/</guid>
+                <pubDate>Tue, 05 Feb 2019 06:07:00 +0800</pubDate>
+                
+                    <author>1612291475@qq.com (小青蛙)</author>
+                
+                <copyright>[赣ICP备20004830号](http://www.beian.miit.gov.cn/)</copyright>
+                
+                    <description><![CDATA[<blockquote>
+<p>Spring是一个开源框架，是 Spring 全家桶中的一员,2003 年兴起的一个轻量级的Java 开发框架，作者：Rod Johnson  。</p>
+<p>Spring是为了解决企业级应用开发的复杂性而创建的，简化开发。</p>
+</blockquote>
+<h4 id="什么是-spring-boot">什么是 Spring Boot</h4>
+<p><img src="https://gitee.com/zyh-h/blogimg/raw/master/img/20200414164213.png" alt=""></p>
+<p>Spring Boot 其实就是 Spring，学过 Spring 的大家一定都知道，即使是一个很简单的程序，Spring 都需要大量的配置。而 Spring Boot 将我们从配置文件中解放了出来，Spring Boot 提供了大量的默认配置，我们只需要少数的配置甚至不配置，就可以建立起来一个 Spring Boot 应用，简直就是 Java 程序员的福音。</p>
+<p>Spring Boot 基于 Spring 开发，Spirng Boot 本身并不提供 Spring 框架的核心特性以及扩展功能，只是用于快速、敏捷地开发新一代基于 Spring 框架的应用程序。也就是说，它并不是用来替代 Spring 的解决方案，而是和 Spring 框架紧密结合用于提升 Spring 开发者体验的工具。Spring Boot 以<strong>约定大于配置的核心思想</strong>，默认帮我们进行了很多设置，多数 Spring Boot 应用只需要很少的 Spring 配置。同时它集成了大量常用的第三方库配置（例如 Redis、MongoDB、Jpa、RabbitMQ、Quartz 等等），Spring Boot 应用中这些第三方库几乎可以零配置的开箱即用。</p>
+<p>简单来说就是SpringBoot其实不是什么新的框架，它默认配置了很多框架的使用方式，就像maven整合了所有的jar包，spring boot整合了所有的框架 。</p>
+<p>Spring Boot 出生名门，从一开始就站在一个比较高的起点，又经过这几年的发展，生态足够完善，Spring Boot 已经当之无愧成为 Java 领域最热门的技术。</p>
+<h4 id="spring-boot-的优点">Spring Boot 的优点</h4>
+<ul>
+<li>为所有Spring开发者更快的入门</li>
+<li>开箱即用，提供各种默认配置来简化项目配置</li>
+<li>内嵌式容器简化Web项目</li>
+<li>没有冗余代码生成和XML配置的要求。</li>
+</ul>]]></description>
+                
+                
+                
+                
+                
+                    
+                        
+                            
+                                
+                                
+                                
+                                    <category domain="https://example.com/categories/springboot/">SpringBoot</category>
+                                
+                            
+                        
+                    
+                        
+                            
+                                
+                                
+                                
+                                    <category domain="https://example.com/tags/springboot/">SpringBoot</category>
+                                
+                            
+                                
+                                
+                                
+                                    <category domain="https://example.com/tags/java/">java</category>
+                                
+                            
+                        
+                    
+                
+            </item>
+        
+            <item>
                 <title>PicGo &#43; Gitee(码云)实现markdown图床</title>
                 <link>https://example.com/posts/picgo-&#43;-gitee%E5%AE%9E%E7%8E%B0markdown%E5%9B%BE%E5%BA%8A/</link>
                 <guid isPermaLink="true">https://example.com/posts/picgo-&#43;-gitee%E5%AE%9E%E7%8E%B0markdown%E5%9B%BE%E5%BA%8A/</guid>
-                <pubDate>Thu, 30 Aug 2018 16:01:23 +0800</pubDate>
+                <pubDate>Sun, 03 Feb 2019 16:01:23 +0800</pubDate>
                 
-                    <author>1612291475@qq.com (zyhhh)</author>
+                    <author>1612291475@qq.com (小青蛙)</author>
                 
-                
+                <copyright>[赣ICP备20004830号](http://www.beian.miit.gov.cn/)</copyright>
                 
                     <description><![CDATA[<p>咱们写博客的时候，总是需要插入图片的，图片存在本地的话上传到博客网站去就没法显示了，就算一个图一个图的复制粘贴上去，想移植到其他的博客网站，图就会失效，我们就需要图床</p>
 <blockquote>
@@ -223,8 +1568,7 @@
 <blockquote>
 <p>这里注意一下，必须要先安装<a href="https://link.zhihu.com/?target=https%3A//nodejs.org/en/">node.js</a>才能安装插件，没装的自己装一下，然后重启就行。</p>
 </blockquote>
-<p>这个地方有两个插件，我试了一遍，两个都能用，大家看心情选择，先说一下右边这个<strong>gitee-uploader 1.1.2</strong>，用不了的同学就选左边那个，我都会讲一遍配置</p>
-<hr>
+<p>这个地方有两个插件，我试了一遍，两个都能用，大家看心情选择，先说一下左边这个<strong>gitee 1.2.2-beta</strong>，用不了的同学就选右边那个，大体基本相同</p>
 <h2 id="2-建立gitee码云图床库">2. 建立gitee（码云）图床库</h2>
 <p>注册码云的方法很简单，网站引导都是中文，不多说了，我们直接建立自己的图床库。</p>
 <h3 id="点击右上角的号新建仓库">点击右上角的+号，新建仓库</h3>
@@ -307,19 +1651,7 @@
                                 
                                 
                                 
-                                    <category domain="https://example.com/tags/preview/">preview</category>
-                                
-                            
-                                
-                                
-                                
-                                    <category domain="https://example.com/tags/syntax-highlighting/">Syntax Highlighting</category>
-                                
-                            
-                                
-                                
-                                
-                                    <category domain="https://example.com/tags/tag-5/">tag-5</category>
+                                    <category domain="https://example.com/tags/%E5%8D%9A%E5%AE%A2/">博客</category>
                                 
                             
                         
@@ -328,205 +1660,16 @@
             </item>
         
             <item>
-                <title>单例模式</title>
-                <link>https://example.com/posts/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F-%E5%89%AF%E6%9C%AC-2/</link>
-                <guid isPermaLink="true">https://example.com/posts/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F-%E5%89%AF%E6%9C%AC-2/</guid>
-                <pubDate>Thu, 30 Aug 2018 01:37:56 +0800</pubDate>
+                <title></title>
+                <link>https://example.com/posts/hashmap%E7%BA%BF%E7%A8%8B%E4%B8%8D%E5%AE%89%E5%85%A8%E7%9A%84%E5%8E%9F%E5%9B%A0/</link>
+                <guid isPermaLink="true">https://example.com/posts/hashmap%E7%BA%BF%E7%A8%8B%E4%B8%8D%E5%AE%89%E5%85%A8%E7%9A%84%E5%8E%9F%E5%9B%A0/</guid>
+                <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
                 
-                    <author>1612291475@qq.com (zyhhh)</author>
+                    <author>1612291475@qq.com (小青蛙)</author>
                 
+                <copyright>[赣ICP备20004830号](http://www.beian.miit.gov.cn/)</copyright>
                 
-                
-                    <description><![CDATA[<h2 id="一单例模式">一、单例模式</h2>
-<p>在标准的23种设计模式种，单例设计模式在应用中是非常常见的，而我们在学习单例模式中，一定要考虑到和多线程结合起来时可能存在的各种问题以及其解决办法，这样我们才能写出一个在多线程环境下安全、正确的单例模式。</p>
-<p>单例模式常见的有八种写法(更多时候分为六种，此处更加细分了)：</p>
-<ul>
-<li>饿汉式（静态常量）</li>
-<li>饿汉式（静态代码块）</li>
-<li>懒汉式（线程不安全）</li>
-<li>懒汉式（线程安全，同步方法）</li>
-<li>懒汉式（线程安全，同步代码块）</li>
-<li>双重检查锁</li>
-<li>静态内部类</li>
-<li>枚举</li>
-</ul>
-<hr>
-<h2 id="二单例模式的基本实现思路">二、单例模式的基本实现思路：</h2>
-<p>单例模式要求类能够有返回对象的一个引用（并且永远是同一个）和一个获得该实例的方法（必须是静态方法，往往使用<code>getInstance()</code>这个方法）</p>
-<p>单例模式的实现主要通过以下步骤：</p>
-<p>（1）将该类的构造方法定义为<strong>私有方法</strong>，这样其它的代码就无法通过调用该类的构造方法来实例化该类的对象，只有通过该类提供的静态方法来得到该类的唯一实例；</p>
-<p>（2）在该类种提供一个静态方法，当我们调用这个方法时，如果类持有的引用不为空就返回这个引用，如果类保持的引用为空就创建该类的实例并将实例的引用赋值给该类保持的引用。</p>
-<p>注意事项：单例模式在多线程的环境下必须小心使用，如果当唯一实例尚未创建时，有两个线程同时调用创建方法，那么它们同时没有检测到唯一实例的存在，从而同时各自创建了一个实例，这样就有两个实例被创建了出来，从而违反了单例模式种实例唯一的原则，解决的办法显而易见是加锁。</p>
-<h2 id="三单例模式的八种写法">三、单例模式的八种写法</h2>
-<h3 id="1饿汉式静态常量">1、饿汉式（静态常量）</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nf">singleton</span><span class="o">(</span><span class="o">)</span><span class="o">{</span>
-    <span class="kd">private</span> <span class="kd">final</span> <span class="kd">static</span> <span class="n">Singleton</span> <span class="n">INSTANCE</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Singleton</span><span class="o">(</span><span class="o">)</span><span class="o">;</span>
-    
-    <span class="c1">//注意构造方法必须私有
-</span><span class="c1"></span>    <span class="kd">private</span> <span class="nf">Singleton</span><span class="o">(</span><span class="o">)</span><span class="o">{</span><span class="o">}</span>
-    
-    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Singleton</span> <span class="nf">getInstance</span><span class="o">(</span><span class="o">)</span><span class="o">{</span>
-        <span class="k">return</span> <span class="n">INSTANCE</span><span class="o">;</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>优点：写法简单，就是在类加载的时候完成实例化，避免了线程同步问题。</p>
-<p>缺点：没有达到懒加载的效果，如果从始至终都未使用过这个实例，会造成内存的浪费。</p>
-<h3 id="2饿汉式静态代码块">2、饿汉式（静态代码块）</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Singleton</span><span class="o">{</span>
-    <span class="kd">private</span> <span class="kd">static</span> <span class="n">Singleton</span> <span class="n">instance</span><span class="o">;</span>
-    
-    <span class="kd">static</span><span class="o">{</span>
-        <span class="n">instance</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Singleton</span><span class="o">(</span><span class="o">)</span><span class="o">;</span>
-    <span class="o">}</span>
-    
-    <span class="kd">private</span> <span class="nf">Singleton</span><span class="o">(</span><span class="o">)</span><span class="o">{</span><span class="o">}</span>
-    
-    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Singleton</span> <span class="nf">getInstance</span><span class="o">(</span><span class="o">)</span><span class="o">{</span>
-        <span class="k">return</span> <span class="n">instance</span><span class="o">;</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>这种方式跟第一种方式类似，都是在类加载的时候完成的，只不过将实例化的过程放在了静态代码块种，优缺点跟上面一样。</p>
-<h3 id="3懒汉式线程不安全">3、懒汉式（线程不安全）</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Singleton</span><span class="o">{</span>
-    <span class="kd">private</span> <span class="kd">static</span> <span class="n">Singleton</span> <span class="n">instance</span><span class="o">;</span>
-    
-    <span class="kd">private</span> <span class="nf">Singleton</span><span class="o">(</span><span class="o">)</span><span class="o">{</span><span class="o">}</span>
-    
-    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Singleton</span> <span class="nf">getInstance</span><span class="o">(</span><span class="o">)</span><span class="o">{</span>
-        <span class="k">if</span><span class="o">(</span><span class="n">instance</span> <span class="o">=</span><span class="o">=</span> <span class="kc">null</span><span class="o">)</span><span class="o">{</span>
-            <span class="n">instance</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Singleton</span><span class="o">(</span><span class="o">)</span><span class="o">;</span>
-        <span class="o">}</span>
-        <span class="k">return</span> <span class="n">instance</span><span class="o">;</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>这种写法在单线程环境下可以使用，但是多线程环境下显然会产生多个实例。</p>
-<h3 id="4懒汉式线程安全同步方法">4、懒汉式（线程安全，同步方法）</h3>
-<pre><code>public class Singleton{
-    private static Singleton instance;
-    
-    private Singleton(){}
-    
-    public static synchronized Singleton getInstance(){
-        if(instance == null){
-            instance = new Singleton();
-        }
-        return instance;
-    }
-}
-</code></pre><p>这种方法是对上面的线程不安全的懒汉式的改进。</p>
-<p>由于每次去获取实例的时候都会进入<code>synchronized</code>代码块而不管实例是否为null，而其实这个方法只需要执行一次实例化代码就可以，因此这样的开销非常大，所以不推荐使用。</p>
-<h3 id="5懒汉式线程安全同步代码块">5、懒汉式（线程安全，同步代码块）</h3>
-<pre><code>public class Singleton{
-    private static Singleton instance;
-    
-    private Singleton(){}
-    
-    public static Singleton getInstance(){
-        if(instance == null){
-            synchronized(Singleton.class){
-                instance = new Singleton();
-            }
-        }
-        return instance;
-    }
-}
-</code></pre><p>并不能起到线程同步的作用，跟第三种方式遇到的情形一致。假如两个线程同时进入了<code>if(instance == null)</code>代码块，那么还是会产生多个实例，因此同样不推荐使用。</p>
-<h3 id="6双重检查锁">6、双重检查锁</h3>
-<pre><code>public class Singleton{
-    private static volatile Singleton singleton;
-    
-    private Singleton(){}
-    
-    public static Singleton getInstance(){
-        if(singleton == null){
-            synchronized(Singleton.class){
-                if(singleton == null){
-                    singleton = new Singleton():
-                }
-            }
-        }
-        return singleton;
-    }
-}
-</code></pre><p>双重检查锁对于多线程开发者来说并不陌生，我们进行了两次<code>if(singleton == null)</code>判断，并通过将实例singleton设置为<code>volatile</code>变量，这样可以实现变量的可见性并且禁止编译器指令重排序造成的其它问题。关于双重检查锁的问题可以详见我的另外一篇博客：
-<img src="https://site-1258928558.cos.ap-guangzhou.myqcloud.com/linkcard.png" alt="图标"></p>
-<p>优点：线程安全，延迟加载，效率较高。</p>
-<h3 id="7静态内部类">7、静态内部类</h3>
-<pre><code>public class Singleton{
-    private Singleton(){}
-    
-    private static class SingletonInstance{
-        private static final Singleton INSTANCE = new Singleton();
-    }
-    
-    public static Singleton getInstance(){
-        return SingletonInstance.INSTANCE;
-    }
-}
-</code></pre><p>这种方式跟饿汉式方式采用的机制类似，但又有不同。两者都是采用了类装载的机制来保证初始化实例时只有一个线程。不同的地方在饿汉式方式是只要Singleton类被装载就会实例化，没有Lazy-Loading（懒加载）的作用，而静态内部类方式在Singleton类被装载时并不会立即实例化，而是在需要实例化时，调用getInstance方法，才会装载SingletonInstance类，从而完成Singleton的实例化。</p>
-<p>类的静态属性只会在第一次加载类的时候初始化，所以在这里，<strong>JVM帮助我们保证了线程的安全性，在类进行初始化时，别的线程是无法进入的。</strong></p>
-<p>优点：避免了线程不安全，延迟加载，效率高。</p>
-<h3 id="8枚举">8、枚举</h3>
-<pre><code>public enum Singleton{
-    INSTANCE;
-    public void whateverMethod(){
-        
-    }
-}
-</code></pre><p>借助JDK1.5中添加的枚举来实现单例模式。不仅能避免多线程同步问题，而且还能防止反序列化重新创建新的对象。可能是因为枚举在JDK1.5中才添加，所以在实际项目开发中，使用枚举实现单例模式很少出现。</p>]]></description>
+                    <description><![CDATA[]]></description>
                 
                 
                 
@@ -535,512 +1678,6 @@
                     
                         
                     
-                        
-                            
-                                
-                                
-                                
-                                    <category domain="https://example.com/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</category>
-                                
-                            
-                        
-                    
-                
-            </item>
-        
-            <item>
-                <title>单例模式</title>
-                <link>https://example.com/posts/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F-%E5%89%AF%E6%9C%AC/</link>
-                <guid isPermaLink="true">https://example.com/posts/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F-%E5%89%AF%E6%9C%AC/</guid>
-                <pubDate>Thu, 30 Aug 2018 01:37:56 +0800</pubDate>
-                
-                    <author>1612291475@qq.com (zyhhh)</author>
-                
-                
-                
-                    <description><![CDATA[<h2 id="一单例模式">一、单例模式</h2>
-<p>在标准的23种设计模式种，单例设计模式在应用中是非常常见的，而我们在学习单例模式中，一定要考虑到和多线程结合起来时可能存在的各种问题以及其解决办法，这样我们才能写出一个在多线程环境下安全、正确的单例模式。</p>
-<p>单例模式常见的有八种写法(更多时候分为六种，此处更加细分了)：</p>
-<ul>
-<li>饿汉式（静态常量）</li>
-<li>饿汉式（静态代码块）</li>
-<li>懒汉式（线程不安全）</li>
-<li>懒汉式（线程安全，同步方法）</li>
-<li>懒汉式（线程安全，同步代码块）</li>
-<li>双重检查锁</li>
-<li>静态内部类</li>
-<li>枚举</li>
-</ul>
-<hr>
-<h2 id="二单例模式的基本实现思路">二、单例模式的基本实现思路：</h2>
-<p>单例模式要求类能够有返回对象的一个引用（并且永远是同一个）和一个获得该实例的方法（必须是静态方法，往往使用<code>getInstance()</code>这个方法）</p>
-<p>单例模式的实现主要通过以下步骤：</p>
-<p>（1）将该类的构造方法定义为<strong>私有方法</strong>，这样其它的代码就无法通过调用该类的构造方法来实例化该类的对象，只有通过该类提供的静态方法来得到该类的唯一实例；</p>
-<p>（2）在该类种提供一个静态方法，当我们调用这个方法时，如果类持有的引用不为空就返回这个引用，如果类保持的引用为空就创建该类的实例并将实例的引用赋值给该类保持的引用。</p>
-<p>注意事项：单例模式在多线程的环境下必须小心使用，如果当唯一实例尚未创建时，有两个线程同时调用创建方法，那么它们同时没有检测到唯一实例的存在，从而同时各自创建了一个实例，这样就有两个实例被创建了出来，从而违反了单例模式种实例唯一的原则，解决的办法显而易见是加锁。</p>
-<h2 id="三单例模式的八种写法">三、单例模式的八种写法</h2>
-<h3 id="1饿汉式静态常量">1、饿汉式（静态常量）</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nf">singleton</span><span class="o">(</span><span class="o">)</span><span class="o">{</span>
-    <span class="kd">private</span> <span class="kd">final</span> <span class="kd">static</span> <span class="n">Singleton</span> <span class="n">INSTANCE</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Singleton</span><span class="o">(</span><span class="o">)</span><span class="o">;</span>
-    
-    <span class="c1">//注意构造方法必须私有
-</span><span class="c1"></span>    <span class="kd">private</span> <span class="nf">Singleton</span><span class="o">(</span><span class="o">)</span><span class="o">{</span><span class="o">}</span>
-    
-    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Singleton</span> <span class="nf">getInstance</span><span class="o">(</span><span class="o">)</span><span class="o">{</span>
-        <span class="k">return</span> <span class="n">INSTANCE</span><span class="o">;</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>优点：写法简单，就是在类加载的时候完成实例化，避免了线程同步问题。</p>
-<p>缺点：没有达到懒加载的效果，如果从始至终都未使用过这个实例，会造成内存的浪费。</p>
-<h3 id="2饿汉式静态代码块">2、饿汉式（静态代码块）</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Singleton</span><span class="o">{</span>
-    <span class="kd">private</span> <span class="kd">static</span> <span class="n">Singleton</span> <span class="n">instance</span><span class="o">;</span>
-    
-    <span class="kd">static</span><span class="o">{</span>
-        <span class="n">instance</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Singleton</span><span class="o">(</span><span class="o">)</span><span class="o">;</span>
-    <span class="o">}</span>
-    
-    <span class="kd">private</span> <span class="nf">Singleton</span><span class="o">(</span><span class="o">)</span><span class="o">{</span><span class="o">}</span>
-    
-    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Singleton</span> <span class="nf">getInstance</span><span class="o">(</span><span class="o">)</span><span class="o">{</span>
-        <span class="k">return</span> <span class="n">instance</span><span class="o">;</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>这种方式跟第一种方式类似，都是在类加载的时候完成的，只不过将实例化的过程放在了静态代码块种，优缺点跟上面一样。</p>
-<h3 id="3懒汉式线程不安全">3、懒汉式（线程不安全）</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Singleton</span><span class="o">{</span>
-    <span class="kd">private</span> <span class="kd">static</span> <span class="n">Singleton</span> <span class="n">instance</span><span class="o">;</span>
-    
-    <span class="kd">private</span> <span class="nf">Singleton</span><span class="o">(</span><span class="o">)</span><span class="o">{</span><span class="o">}</span>
-    
-    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Singleton</span> <span class="nf">getInstance</span><span class="o">(</span><span class="o">)</span><span class="o">{</span>
-        <span class="k">if</span><span class="o">(</span><span class="n">instance</span> <span class="o">=</span><span class="o">=</span> <span class="kc">null</span><span class="o">)</span><span class="o">{</span>
-            <span class="n">instance</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Singleton</span><span class="o">(</span><span class="o">)</span><span class="o">;</span>
-        <span class="o">}</span>
-        <span class="k">return</span> <span class="n">instance</span><span class="o">;</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>这种写法在单线程环境下可以使用，但是多线程环境下显然会产生多个实例。</p>
-<h3 id="4懒汉式线程安全同步方法">4、懒汉式（线程安全，同步方法）</h3>
-<pre><code>public class Singleton{
-    private static Singleton instance;
-    
-    private Singleton(){}
-    
-    public static synchronized Singleton getInstance(){
-        if(instance == null){
-            instance = new Singleton();
-        }
-        return instance;
-    }
-}
-</code></pre><p>这种方法是对上面的线程不安全的懒汉式的改进。</p>
-<p>由于每次去获取实例的时候都会进入<code>synchronized</code>代码块而不管实例是否为null，而其实这个方法只需要执行一次实例化代码就可以，因此这样的开销非常大，所以不推荐使用。</p>
-<h3 id="5懒汉式线程安全同步代码块">5、懒汉式（线程安全，同步代码块）</h3>
-<pre><code>public class Singleton{
-    private static Singleton instance;
-    
-    private Singleton(){}
-    
-    public static Singleton getInstance(){
-        if(instance == null){
-            synchronized(Singleton.class){
-                instance = new Singleton();
-            }
-        }
-        return instance;
-    }
-}
-</code></pre><p>并不能起到线程同步的作用，跟第三种方式遇到的情形一致。假如两个线程同时进入了<code>if(instance == null)</code>代码块，那么还是会产生多个实例，因此同样不推荐使用。</p>
-<h3 id="6双重检查锁">6、双重检查锁</h3>
-<pre><code>public class Singleton{
-    private static volatile Singleton singleton;
-    
-    private Singleton(){}
-    
-    public static Singleton getInstance(){
-        if(singleton == null){
-            synchronized(Singleton.class){
-                if(singleton == null){
-                    singleton = new Singleton():
-                }
-            }
-        }
-        return singleton;
-    }
-}
-</code></pre><p>双重检查锁对于多线程开发者来说并不陌生，我们进行了两次<code>if(singleton == null)</code>判断，并通过将实例singleton设置为<code>volatile</code>变量，这样可以实现变量的可见性并且禁止编译器指令重排序造成的其它问题。关于双重检查锁的问题可以详见我的另外一篇博客：
-<img src="https://site-1258928558.cos.ap-guangzhou.myqcloud.com/linkcard.png" alt="图标"></p>
-<p>优点：线程安全，延迟加载，效率较高。</p>
-<h3 id="7静态内部类">7、静态内部类</h3>
-<pre><code>public class Singleton{
-    private Singleton(){}
-    
-    private static class SingletonInstance{
-        private static final Singleton INSTANCE = new Singleton();
-    }
-    
-    public static Singleton getInstance(){
-        return SingletonInstance.INSTANCE;
-    }
-}
-</code></pre><p>这种方式跟饿汉式方式采用的机制类似，但又有不同。两者都是采用了类装载的机制来保证初始化实例时只有一个线程。不同的地方在饿汉式方式是只要Singleton类被装载就会实例化，没有Lazy-Loading（懒加载）的作用，而静态内部类方式在Singleton类被装载时并不会立即实例化，而是在需要实例化时，调用getInstance方法，才会装载SingletonInstance类，从而完成Singleton的实例化。</p>
-<p>类的静态属性只会在第一次加载类的时候初始化，所以在这里，<strong>JVM帮助我们保证了线程的安全性，在类进行初始化时，别的线程是无法进入的。</strong></p>
-<p>优点：避免了线程不安全，延迟加载，效率高。</p>
-<h3 id="8枚举">8、枚举</h3>
-<pre><code>public enum Singleton{
-    INSTANCE;
-    public void whateverMethod(){
-        
-    }
-}
-</code></pre><p>借助JDK1.5中添加的枚举来实现单例模式。不仅能避免多线程同步问题，而且还能防止反序列化重新创建新的对象。可能是因为枚举在JDK1.5中才添加，所以在实际项目开发中，使用枚举实现单例模式很少出现。</p>]]></description>
-                
-                
-                
-                
-                
-                    
-                        
-                    
-                        
-                            
-                                
-                                
-                                
-                                    <category domain="https://example.com/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</category>
-                                
-                            
-                        
-                    
-                
-            </item>
-        
-            <item>
-                <title>单例模式</title>
-                <link>https://example.com/posts/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/</link>
-                <guid isPermaLink="true">https://example.com/posts/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/</guid>
-                <pubDate>Thu, 30 Aug 2018 01:37:56 +0800</pubDate>
-                
-                    <author>1612291475@qq.com (zyhhh)</author>
-                
-                
-                
-                    <description><![CDATA[<h2 id="一单例模式">一、单例模式</h2>
-<p>在标准的23种设计模式种，单例设计模式在应用中是非常常见的，而我们在学习单例模式中，一定要考虑到和多线程结合起来时可能存在的各种问题以及其解决办法，这样我们才能写出一个在多线程环境下安全、正确的单例模式。</p>
-<p>单例模式常见的有八种写法(更多时候分为六种，此处更加细分了)：</p>
-<ul>
-<li>饿汉式（静态常量）</li>
-<li>饿汉式（静态代码块）</li>
-<li>懒汉式（线程不安全）</li>
-<li>懒汉式（线程安全，同步方法）</li>
-<li>懒汉式（线程安全，同步代码块）</li>
-<li>双重检查锁</li>
-<li>静态内部类</li>
-<li>枚举</li>
-</ul>
-<hr>
-<h2 id="二单例模式的基本实现思路">二、单例模式的基本实现思路：</h2>
-<p>单例模式要求类能够有返回对象的一个引用（并且永远是同一个）和一个获得该实例的方法（必须是静态方法，往往使用<code>getInstance()</code>这个方法）</p>
-<p>单例模式的实现主要通过以下步骤：</p>
-<p>（1）将该类的构造方法定义为<strong>私有方法</strong>，这样其它的代码就无法通过调用该类的构造方法来实例化该类的对象，只有通过该类提供的静态方法来得到该类的唯一实例；</p>
-<p>（2）在该类种提供一个静态方法，当我们调用这个方法时，如果类持有的引用不为空就返回这个引用，如果类保持的引用为空就创建该类的实例并将实例的引用赋值给该类保持的引用。</p>
-<p>注意事项：单例模式在多线程的环境下必须小心使用，如果当唯一实例尚未创建时，有两个线程同时调用创建方法，那么它们同时没有检测到唯一实例的存在，从而同时各自创建了一个实例，这样就有两个实例被创建了出来，从而违反了单例模式种实例唯一的原则，解决的办法显而易见是加锁。</p>
-<h2 id="三单例模式的八种写法">三、单例模式的八种写法</h2>
-<h3 id="1饿汉式静态常量">1、饿汉式（静态常量）</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nf">singleton</span><span class="o">(</span><span class="o">)</span><span class="o">{</span>
-    <span class="kd">private</span> <span class="kd">final</span> <span class="kd">static</span> <span class="n">Singleton</span> <span class="n">INSTANCE</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Singleton</span><span class="o">(</span><span class="o">)</span><span class="o">;</span>
-    
-    <span class="c1">//注意构造方法必须私有
-</span><span class="c1"></span>    <span class="kd">private</span> <span class="nf">Singleton</span><span class="o">(</span><span class="o">)</span><span class="o">{</span><span class="o">}</span>
-    
-    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Singleton</span> <span class="nf">getInstance</span><span class="o">(</span><span class="o">)</span><span class="o">{</span>
-        <span class="k">return</span> <span class="n">INSTANCE</span><span class="o">;</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>优点：写法简单，就是在类加载的时候完成实例化，避免了线程同步问题。</p>
-<p>缺点：没有达到懒加载的效果，如果从始至终都未使用过这个实例，会造成内存的浪费。</p>
-<h3 id="2饿汉式静态代码块">2、饿汉式（静态代码块）</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Singleton</span><span class="o">{</span>
-    <span class="kd">private</span> <span class="kd">static</span> <span class="n">Singleton</span> <span class="n">instance</span><span class="o">;</span>
-    
-    <span class="kd">static</span><span class="o">{</span>
-        <span class="n">instance</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Singleton</span><span class="o">(</span><span class="o">)</span><span class="o">;</span>
-    <span class="o">}</span>
-    
-    <span class="kd">private</span> <span class="nf">Singleton</span><span class="o">(</span><span class="o">)</span><span class="o">{</span><span class="o">}</span>
-    
-    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Singleton</span> <span class="nf">getInstance</span><span class="o">(</span><span class="o">)</span><span class="o">{</span>
-        <span class="k">return</span> <span class="n">instance</span><span class="o">;</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>这种方式跟第一种方式类似，都是在类加载的时候完成的，只不过将实例化的过程放在了静态代码块种，优缺点跟上面一样。</p>
-<h3 id="3懒汉式线程不安全">3、懒汉式（线程不安全）</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Singleton</span><span class="o">{</span>
-    <span class="kd">private</span> <span class="kd">static</span> <span class="n">Singleton</span> <span class="n">instance</span><span class="o">;</span>
-    
-    <span class="kd">private</span> <span class="nf">Singleton</span><span class="o">(</span><span class="o">)</span><span class="o">{</span><span class="o">}</span>
-    
-    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Singleton</span> <span class="nf">getInstance</span><span class="o">(</span><span class="o">)</span><span class="o">{</span>
-        <span class="k">if</span><span class="o">(</span><span class="n">instance</span> <span class="o">=</span><span class="o">=</span> <span class="kc">null</span><span class="o">)</span><span class="o">{</span>
-            <span class="n">instance</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Singleton</span><span class="o">(</span><span class="o">)</span><span class="o">;</span>
-        <span class="o">}</span>
-        <span class="k">return</span> <span class="n">instance</span><span class="o">;</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>这种写法在单线程环境下可以使用，但是多线程环境下显然会产生多个实例。</p>
-<h3 id="4懒汉式线程安全同步方法">4、懒汉式（线程安全，同步方法）</h3>
-<pre><code>public class Singleton{
-    private static Singleton instance;
-    
-    private Singleton(){}
-    
-    public static synchronized Singleton getInstance(){
-        if(instance == null){
-            instance = new Singleton();
-        }
-        return instance;
-    }
-}
-</code></pre><p>这种方法是对上面的线程不安全的懒汉式的改进。</p>
-<p>由于每次去获取实例的时候都会进入<code>synchronized</code>代码块而不管实例是否为null，而其实这个方法只需要执行一次实例化代码就可以，因此这样的开销非常大，所以不推荐使用。</p>
-<h3 id="5懒汉式线程安全同步代码块">5、懒汉式（线程安全，同步代码块）</h3>
-<pre><code>public class Singleton{
-    private static Singleton instance;
-    
-    private Singleton(){}
-    
-    public static Singleton getInstance(){
-        if(instance == null){
-            synchronized(Singleton.class){
-                instance = new Singleton();
-            }
-        }
-        return instance;
-    }
-}
-</code></pre><p>并不能起到线程同步的作用，跟第三种方式遇到的情形一致。假如两个线程同时进入了<code>if(instance == null)</code>代码块，那么还是会产生多个实例，因此同样不推荐使用。</p>
-<h3 id="6双重检查锁">6、双重检查锁</h3>
-<pre><code>public class Singleton{
-    private static volatile Singleton singleton;
-    
-    private Singleton(){}
-    
-    public static Singleton getInstance(){
-        if(singleton == null){
-            synchronized(Singleton.class){
-                if(singleton == null){
-                    singleton = new Singleton():
-                }
-            }
-        }
-        return singleton;
-    }
-}
-</code></pre><p>双重检查锁对于多线程开发者来说并不陌生，我们进行了两次<code>if(singleton == null)</code>判断，并通过将实例singleton设置为<code>volatile</code>变量，这样可以实现变量的可见性并且禁止编译器指令重排序造成的其它问题。关于双重检查锁的问题可以详见我的另外一篇博客：
-<img src="https://site-1258928558.cos.ap-guangzhou.myqcloud.com/linkcard.png" alt="图标"></p>
-<p>优点：线程安全，延迟加载，效率较高。</p>
-<h3 id="7静态内部类">7、静态内部类</h3>
-<pre><code>public class Singleton{
-    private Singleton(){}
-    
-    private static class SingletonInstance{
-        private static final Singleton INSTANCE = new Singleton();
-    }
-    
-    public static Singleton getInstance(){
-        return SingletonInstance.INSTANCE;
-    }
-}
-</code></pre><p>这种方式跟饿汉式方式采用的机制类似，但又有不同。两者都是采用了类装载的机制来保证初始化实例时只有一个线程。不同的地方在饿汉式方式是只要Singleton类被装载就会实例化，没有Lazy-Loading（懒加载）的作用，而静态内部类方式在Singleton类被装载时并不会立即实例化，而是在需要实例化时，调用getInstance方法，才会装载SingletonInstance类，从而完成Singleton的实例化。</p>
-<p>类的静态属性只会在第一次加载类的时候初始化，所以在这里，<strong>JVM帮助我们保证了线程的安全性，在类进行初始化时，别的线程是无法进入的。</strong></p>
-<p>优点：避免了线程不安全，延迟加载，效率高。</p>
-<h3 id="8枚举">8、枚举</h3>
-<pre><code>public enum Singleton{
-    INSTANCE;
-    public void whateverMethod(){
-        
-    }
-}
-</code></pre><p>借助JDK1.5中添加的枚举来实现单例模式。不仅能避免多线程同步问题，而且还能防止反序列化重新创建新的对象。可能是因为枚举在JDK1.5中才添加，所以在实际项目开发中，使用枚举实现单例模式很少出现。</p>]]></description>
-                
-                
-                
-                
-                
-                    
-                        
-                    
-                        
-                            
-                                
-                                
-                                
-                                    <category domain="https://example.com/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</category>
-                                
-                            
-                        
-                    
-                
-            </item>
-        
-            <item>
-                <title>Theme preview</title>
-                <link>https://example.com/posts/even-preview/</link>
-                <guid isPermaLink="true">https://example.com/posts/even-preview/</guid>
-                <pubDate>Tue, 10 Jul 2018 00:00:00 +0800</pubDate>
-                
-                    <author>1612291475@qq.com (zyhhh)</author>
-                
-                
-                
-                    <description><![CDATA[<blockquote>
-<p>Based on <a href="https://github.com/facelessuser/MarkdownPreview/blob/master/examples/test.md">MarkdownPreview test.md</a>.</p>
-</blockquote>
-<ul>
-<li><a href="https://www.xiachufang.com/recipe/100410171/">【靠谱的自制卤水的做法视频_做法步骤】_下厨房</a></li>
-</ul>
-<p><img src="https://www.xianmin.org/image/cook/lurou-00.jpg" alt="img"></p>
-<p>卤水</p>
-<p><img src="https://www.xianmin.org/image/cook/lurou-01.jpg" alt="img"></p>
-<p>卤好的鸡爪</p>
-]]></description>
-                
-                
-                
-                
-                
-                    
-                        
-                            
-                                
-                                
-                                
-                                    <category domain="https://example.com/categories/theme-preview/">Theme preview</category>
-                                
-                            
-                        
-                    
-                        
-                            
-                                
-                                
-                                
-                                    <category domain="https://example.com/tags/theme-preview/">Theme preview</category>
-                                
-                            
-                                
-                                
-                                
-                                    <category domain="https://example.com/tags/tag-3/">tag-3</category>
-                                
-                            
                         
                     
                 
