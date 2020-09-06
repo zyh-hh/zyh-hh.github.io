@@ -4,17 +4,37 @@
   
   <url>
     <loc>https://example.com/categories/</loc>
-    <lastmod>2020-04-29T10:21:39+08:00</lastmod>
+    <lastmod>2020-09-06T12:05:24+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://example.com/posts/hutool-%E5%A5%BD%E7%94%A8%E7%9A%84java%E5%B7%A5%E5%85%B7%E7%B1%BB%E5%BA%93/</loc>
+    <lastmod>2020-09-06T12:05:24+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://example.com/tags/java%E5%B7%A5%E5%85%B7%E7%B1%BB%E5%BA%93/</loc>
+    <lastmod>2020-09-06T12:05:24+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://example.com/posts/</loc>
-    <lastmod>2020-04-29T10:21:39+08:00</lastmod>
+    <lastmod>2020-09-06T12:05:24+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://example.com/tags/</loc>
-    <lastmod>2020-04-29T10:21:39+08:00</lastmod>
+    <lastmod>2020-09-06T12:05:24+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://example.com/</loc>
+    <lastmod>2020-09-06T12:05:24+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://example.com/categories/%E5%B8%B8%E7%94%A8%E6%8F%92%E4%BB%B6/</loc>
+    <lastmod>2020-09-06T12:05:24+08:00</lastmod>
   </url>
   
   <url>
@@ -23,17 +43,12 @@
   </url>
   
   <url>
-    <loc>https://example.com/</loc>
-    <lastmod>2020-04-29T10:21:39+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://example.com/tags/%E9%9A%8F%E7%AC%94/</loc>
+    <loc>https://example.com/categories/%E9%9A%8F%E7%AC%94/</loc>
     <lastmod>2020-04-16T17:15:51+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://example.com/categories/%E9%9A%8F%E7%AC%94/</loc>
+    <loc>https://example.com/tags/%E9%9A%8F%E7%AC%94/</loc>
     <lastmod>2020-04-16T17:15:51+08:00</lastmod>
   </url>
   
@@ -59,22 +74,17 @@
   
   <url>
     <loc>https://example.com/tags/github/</loc>
-    <lastmod>2020-04-29T10:21:33+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://example.com/categories/github/</loc>
-    <lastmod>2020-04-29T10:21:33+08:00</lastmod>
+    <lastmod>2020-09-06T12:01:29+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://example.com/posts/sourcegraph%E4%BD%BF%E7%94%A8/</loc>
-    <lastmod>2020-04-29T10:21:33+08:00</lastmod>
+    <lastmod>2020-09-06T12:01:29+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://example.com/tags/java/</loc>
-    <lastmod>2020-04-24T22:48:07+08:00</lastmod>
+    <lastmod>2020-09-06T12:01:10+08:00</lastmod>
   </url>
   
   <url>
@@ -93,17 +103,27 @@
   </url>
   
   <url>
+    <loc>https://example.com/categories/java%E5%B8%B8%E7%94%A8%E7%B1%BB/</loc>
+    <lastmod>2020-09-06T12:01:10+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://example.com/posts/%E4%B8%BA%E4%BB%80%E4%B9%88string%E6%98%AF%E4%B8%8D%E5%8F%AF%E5%8F%98%E7%B1%BB%E5%9E%8B/</loc>
+    <lastmod>2020-09-06T12:01:10+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://example.com/posts/concurrenthashmap%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/</loc>
     <lastmod>2020-04-24T22:43:48+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://example.com/categories/java%E5%A4%9A%E7%BA%BF%E7%A8%8B/</loc>
+    <loc>https://example.com/tags/java%E5%A4%9A%E7%BA%BF%E7%A8%8B/</loc>
     <lastmod>2020-04-24T22:48:07+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://example.com/tags/java%E5%A4%9A%E7%BA%BF%E7%A8%8B/</loc>
+    <loc>https://example.com/categories/java%E5%A4%9A%E7%BA%BF%E7%A8%8B/</loc>
     <lastmod>2020-04-24T22:48:07+08:00</lastmod>
   </url>
   
@@ -143,12 +163,12 @@
   </url>
   
   <url>
-    <loc>https://example.com/categories/mysql/</loc>
+    <loc>https://example.com/tags/mysql/</loc>
     <lastmod>2020-04-29T10:21:39+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://example.com/tags/mysql/</loc>
+    <loc>https://example.com/categories/mysql/</loc>
     <lastmod>2020-04-29T10:21:39+08:00</lastmod>
   </url>
   
@@ -158,12 +178,12 @@
   </url>
   
   <url>
-    <loc>https://example.com/categories/springboot/</loc>
+    <loc>https://example.com/tags/springboot/</loc>
     <lastmod>2020-04-15T13:15:24+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://example.com/tags/springboot/</loc>
+    <loc>https://example.com/categories/springboot/</loc>
     <lastmod>2020-04-15T13:15:24+08:00</lastmod>
   </url>
   

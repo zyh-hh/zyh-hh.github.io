@@ -23,10 +23,305 @@
         
             <copyright>[赣ICP备20004830号](http://www.beian.miit.gov.cn/)</copyright>
         
-        <lastBuildDate>Wed, 29 Apr 2020 10:21:53 +0800</lastBuildDate>
+        <lastBuildDate>Sun, 06 Sep 2020 13:34:37 +0800</lastBuildDate>
         
             <atom:link rel="self" type="application/rss+xml" href="https://example.com/rss.xml" />
         
+        
+            <item>
+                <title>Hutool-好用的Java工具类库</title>
+                <link>https://example.com/posts/hutool-%E5%A5%BD%E7%94%A8%E7%9A%84java%E5%B7%A5%E5%85%B7%E7%B1%BB%E5%BA%93/</link>
+                <guid isPermaLink="true">https://example.com/posts/hutool-%E5%A5%BD%E7%94%A8%E7%9A%84java%E5%B7%A5%E5%85%B7%E7%B1%BB%E5%BA%93/</guid>
+                <pubDate>Thu, 14 May 2020 16:01:23 +0800</pubDate>
+                
+                    <author>1612291475@qq.com (小青蛙)</author>
+                
+                <copyright>[赣ICP备20004830号](http://www.beian.miit.gov.cn/)</copyright>
+                
+                    <description><![CDATA[<h1 id="hutool-好用的java工具类库">Hutool-好用的Java工具类库</h1>
+<blockquote>
+<p>Hutool 是一个小而全的 Java 工具类库，通过静态方法封装，降低相关 API 的学习成本，提高工作效率，使 Java 拥有函数式语言般的优雅，让 Java 语言也可以“甜甜的”。
+Hutool 中的工具方法来自于每个用户的精雕细琢，它涵盖了 Java 开发底层代码中的方方面面，它既是大型项目开发中解决小问题的利器，也是小型项目中的效率担当；
+Hutool 是项目中“util”包友好的替代，它节省了开发人员对项目中公用类和公用工具方法的封装时间，使开发专注于业务，同时可以最大限度的避免封装不完善带来的 bug。</p>
+</blockquote>
+<p>上述是 Hutool 的官方介绍，它的官方文档已经介绍的很详细了，因此下面我只简单介绍几个常用的 API 操作，更多的功能我们可以详细阅读文档。</p>
+<p><a href="https://www.hutool.cn/docs/#/">Hutool 官方中文文档https://www.hutool.cn/docs/#/<img src="https://site-1258928558.cos.ap-guangzhou.myqcloud.com/linkcard.png" alt="图标"></a></p>
+<h1 id="hutool-中的一些常用工具类">HuTool 中的一些常用工具类</h1>
+<p>我们引入这个工具类很简单，直接在 Mavan 项目中引入 dependency 即可，如果是初学者，去 <a href="https://mvnrepository.com/?__cf_chl_jschl_tk__=5f02ba3a1bede154b5c40ecd772f0fbeeb944187-1590653480-0-Ab46X745rmfQVlYfjw9OVsSrjOYPgtuxAGZkneZW0brBvL4xhNbUNw_BzTbyMTTkJ6opNPXVJn3e7blKJw8uUKTQEI8mtLehLaOqkFlkeW3WwO14IQfW4n2_HHusQ5AvEfWIpy7GXw5Bp3MGrpi-Xsczhx7Zt2G20QpQp9g6wXjsNuse8ryXmr898BTiCaj_wMJPa0TZ_noKtY_NArdqUbtwqkQA5UtHpBVcUvyy6nOBUaYKElGIzyjEgobgn-eAE-64gSw_AUB519bFV7DKN3Rr32WDRX7tdwrZGz5EFjfI7LjFEtWC0ewKat7DfNfOt6RQPGdNkQiTwFTN4SarU04">Maven Repository</a> 下载 jar 包也可以使用。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;dependency</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;groupId</span><span class="nt">&gt;</span>cn.hutool<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId</span><span class="nt">&gt;</span>hutool-all<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;version</span><span class="nt">&gt;</span>5.3.5<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>通过 Hutool，可以减少代码搜索成本，避免网络上参差不齐的代码出现导致的bug。</p>
+<h2 id="日期相关-api">日期相关 API</h2>
+<p>我们知道，Java 中关于日期的 API 使用一直很繁琐，从 Date 到 Calendar，对开发者都不是那么友好，还容易出 BUG，那么 Hutool 首先就对日期下手了，提供了针对 JDK 中 Date 和 Calendar 对象的封装。</p>
+<p>比如要对当前的 Date 日期进行格式化，一般使用 <code>SimpleDateFormat(yyyy-MM-dd HH:mm:ss)</code> 这种方式，但 SimpleDateFormat 这个类是线程不安全的，而 Hutool 提供了一个 <code>FastDateFormat</code> 类，提供线程安全的针对 Date 对象的格式化和日期字符串解析支持。此对象在实际使用中并不需要感知，相关操作已经封装在 <code>DateUtil</code> 和 <code>DateTime</code> 的相关方法中。</p>
+<p>还有其它的日期 API 如下：</p>
+<ul>
+<li><code>DateUtil</code> 针对日期时间操作提供一系列静态方法</li>
+<li><code>DateTim</code> 提供类似于 Joda-Time 中日期时间对象的封装，继承自 Date 类，并提供更加丰富的对象方法。</li>
+<li><code>DateBetween</code> 计算两个时间间隔的类，除了通过构造新对象使用外，相关操作也已封装在 <code>DateUtil</code> 和 <code>DateTime</code> 的相关方法中。</li>
+<li><code>TimeInterval</code> 一个简单的计时器类，常用于计算某段代码的执行时间，提供包括毫秒、秒、分、时、天、周等各种单位的花费时长计算，对象的静态构造已封装在 <code>DateUtil</code> 中。</li>
+<li><code>DatePattern</code> 提供常用的日期格式化模式，包括 <code>String</code> 类型和 <code>FastDateFormat</code> 两种类型。</li>
+</ul>
+<h2 id="随机工具">随机工具</h2>
+<p>随机工具应该是我们开发中用的较多的类库，Hutool 也封装了常用的 API。</p>
+<ul>
+<li><code>RandomUtil.randomInt</code> 获得指定范围内的随机数</li>
+<li><code>RandomUtil.randomBytes</code> 随机 bytes</li>
+<li><code>RandomUtil.randomEl</code> 随机获得列表中的元素</li>
+<li><code>RandomUtil.randomEleSet</code> 随机获得列表中的一定量的不重复元素，返回 Set</li>
+<li><code>RandomUtil.randomString</code> 获得一个随机的字符串（只包含数字和字符）</li>
+<li><code>RandomUtil.randomNumbers</code> 获得一个只包含数字的字符串</li>
+<li><code>RandomUtil.randomUUID</code> 随机 UUID</li>
+<li><code>RandomUtil.weightRandom</code> 权重随机生成器，传入带权重的对象，然后根据权重随机获取对象</li>
+</ul>
+<h2 id="图片工具">图片工具</h2>
+<p>针对 awt 中图片处理进行封装，这些封装包括：缩放、裁剪、转为黑白、加水印等操作。</p>
+<h3 id="彩色转换成黑白">彩色转换成黑白</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="c1">//黑白转换
+</span><span class="c1"></span><span class="n">ImgUtil</span><span class="o">.</span><span class="na">gray</span><span class="o">(</span><span class="n">FileUtil</span><span class="o">.</span><span class="na">file</span><span class="o">(</span><span class="s">&#34;d:/logo.png&#34;</span><span class="o">)</span><span class="o">,</span> <span class="n">FileUtil</span><span class="o">.</span><span class="na">file</span><span class="o">(</span><span class="s">&#34;d:/result.png&#34;</span><span class="o">)</span><span class="o">)</span><span class="o">;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="添加文字水印">添加文字水印</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="n">ImgUtil</span><span class="o">.</span><span class="na">pressText</span><span class="o">(</span><span class="c1">//
+</span><span class="c1"></span>    <span class="n">FileUtil</span><span class="o">.</span><span class="na">file</span><span class="o">(</span><span class="s">&#34;e:/pic/face.jpg&#34;</span><span class="o">)</span><span class="o">,</span> <span class="c1">//
+</span><span class="c1"></span>    <span class="n">FileUtil</span><span class="o">.</span><span class="na">file</span><span class="o">(</span><span class="s">&#34;e:/pic/test2_result.png&#34;</span><span class="o">)</span><span class="o">,</span> <span class="c1">//
+</span><span class="c1"></span>    <span class="s">&#34;版权所有&#34;</span><span class="o">,</span> <span class="n">Color</span><span class="o">.</span><span class="na">WHITE</span><span class="o">,</span> <span class="c1">//文字
+</span><span class="c1"></span>    <span class="k">new</span> <span class="n">Font</span><span class="o">(</span><span class="s">&#34;黑体&#34;</span><span class="o">,</span> <span class="n">Font</span><span class="o">.</span><span class="na">BOLD</span><span class="o">,</span> <span class="n">100</span><span class="o">)</span><span class="o">,</span> <span class="c1">//字体
+</span><span class="c1"></span>    <span class="n">0</span><span class="o">,</span> <span class="c1">//x坐标修正值。 默认在中间，偏移量相对于中间偏移
+</span><span class="c1"></span>    <span class="n">0</span><span class="o">,</span> <span class="c1">//y坐标修正值。 默认在中间，偏移量相对于中间偏移
+</span><span class="c1"></span>    <span class="n">0</span><span class="o">.</span><span class="na">8f</span><span class="c1">//透明度：alpha 必须是范围 [0.0, 1.0] 之内（包含边界值）的一个浮点数字
+</span><span class="c1"></span><span class="o">)</span><span class="o">;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="加密解密工具">加密解密工具</h2>
+<p>加密一般分为三种：</p>
+<ol>
+<li>对称加密（symmetric），例如：AES、DES等</li>
+<li>非对称加密（asymmetric），例如：RSA、DSA等</li>
+<li>摘要加密（digest），例如：MD5、SHA-1、SHA-256、HMAC等</li>
+</ol>
+<p>Hutool 对上述加密都提供了对应的封装方法。</p>
+<h2 id="布隆过滤器">布隆过滤器</h2>
+<p>布隆过滤器可以用于检索一个元素是否在一个集合中。它的优点是空间效率和查询时间都远远超过一般的算法，缺点是有一定的误识别率和删除困难。一般用于解决 NoSQL 的缓存穿透问题。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="c1">// 初始化
+</span><span class="c1"></span><span class="n">BitMapBloomFilter</span> <span class="n">filter</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BitMapBloomFilter</span><span class="o">(</span><span class="n">10</span><span class="o">)</span><span class="o">;</span>
+<span class="n">filter</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">&#34;123&#34;</span><span class="o">)</span><span class="o">;</span>
+<span class="n">filter</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">&#34;abc&#34;</span><span class="o">)</span><span class="o">;</span>
+<span class="n">filter</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">&#34;ddd&#34;</span><span class="o">)</span><span class="o">;</span>
+
+<span class="c1">// 查找
+</span><span class="c1"></span><span class="n">filter</span><span class="o">.</span><span class="na">contains</span><span class="o">(</span><span class="s">&#34;abc&#34;</span><span class="o">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="邮件工具">邮件工具</h2>
+<p>在 Java中 发送邮件主要品依靠 javax.mail 包，原生 API 使用比较繁琐，Hutool 在支持邮件发送的基础上，仍然依赖于 javax.mail 包。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;dependency</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;groupId</span><span class="nt">&gt;</span>javax.mail<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId</span><span class="nt">&gt;</span>mail<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;version</span><span class="nt">&gt;</span>1.4.7<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>邮件服务器的完整配置：</p>
+<pre><code class="language-properties" data-lang="properties"># 邮件服务器的SMTP地址，可选，默认为smtp.&lt;发件人邮箱后缀&gt;
+host = smtp.yeah.net
+# 邮件服务器的SMTP端口，可选，默认25
+port = 25
+# 发件人（必须正确，否则发送失败）
+from = hutool@yeah.net
+# 用户名，默认为发件人邮箱前缀
+user = hutool
+# 密码（注意，某些邮箱需要为SMTP服务单独设置授权码，详情查看相关帮助）
+pass = q1w2e3
+</code></pre><p>发送邮件：</p>
+<ul>
+<li>发送普通文本邮件，最后一个参数可选是否添加多个附件：</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="c1">//普通文本
+</span><span class="c1"></span><span class="n">MailUtil</span><span class="o">.</span><span class="na">send</span><span class="o">(</span><span class="s">&#34;hutool@foxmail.com&#34;</span><span class="o">,</span> <span class="s">&#34;测试&#34;</span><span class="o">,</span> <span class="s">&#34;邮件来自Hutool测试&#34;</span><span class="o">,</span> <span class="kc">false</span><span class="o">)</span><span class="o">;</span>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>发送 HTML 格式的邮件并附带附件，最后一个参数可选是否添加多个附件：</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="c1">//带HTML格式的邮件
+</span><span class="c1"></span><span class="n">MailUtil</span><span class="o">.</span><span class="na">send</span><span class="o">(</span><span class="s">&#34;hutool@foxmail.com&#34;</span><span class="o">,</span> <span class="s">&#34;测试&#34;</span><span class="o">,</span> <span class="s">&#34;&lt;h1&gt;邮件来自Hutool测试&lt;/h1&gt;&#34;</span><span class="o">,</span> <span class="kc">true</span><span class="o">,</span> <span class="n">FileUtil</span><span class="o">.</span><span class="na">file</span><span class="o">(</span><span class="s">&#34;d:/aaa.xml&#34;</span><span class="o">)</span><span class="o">)</span><span class="o">;</span>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>群发邮件，可选 HTML 或普通文本，可选多个附件：</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="c1">//群发
+</span><span class="c1"></span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">tos</span> <span class="o">=</span> <span class="n">CollUtil</span><span class="o">.</span><span class="na">newArrayList</span><span class="o">(</span>
+    <span class="s">&#34;person1@bbb.com&#34;</span><span class="o">,</span> 
+    <span class="s">&#34;person2@bbb.com&#34;</span><span class="o">,</span> 
+    <span class="s">&#34;person3@bbb.com&#34;</span><span class="o">,</span> 
+    <span class="s">&#34;person4@bbb.com&#34;</span><span class="o">)</span><span class="o">;</span>
+
+<span class="n">MailUtil</span><span class="o">.</span><span class="na">send</span><span class="o">(</span><span class="n">tos</span><span class="o">,</span> <span class="s">&#34;测试&#34;</span><span class="o">,</span> <span class="s">&#34;邮件来自Hutool群发测试&#34;</span><span class="o">,</span> <span class="kc">false</span><span class="o">)</span><span class="o">;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="html-工具">HTML 工具</h2>
+<p>比如清除富文本编辑器中的 HTML 文本的指定标签，或者只保留普通文本。</p>
+<h3 id="htmlutilcleanhtmltag">HtmlUtil.cleanHtmlTag</h3>
+<p>清除所有 HTM L标签，但是保留标签内的内容。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="n">String</span> <span class="n">str</span> <span class="o">=</span> <span class="s">&#34;pre&lt;div class=\&#34;test_div\&#34;&gt;\r\n\t\tdfdsfdsfdsf\r\n&lt;/div&gt;&lt;div class=\&#34;test_div\&#34;&gt;BBBB&lt;/div&gt;&#34;</span><span class="o">;</span>
+
+<span class="c1">// 结果为：pre\r\n\t\tdfdsfdsfdsf\r\nBBBB
+</span><span class="c1"></span><span class="n">String</span> <span class="n">result</span> <span class="o">=</span> <span class="n">HtmlUtil</span><span class="o">.</span><span class="na">cleanHtmlTag</span><span class="o">(</span><span class="n">str</span><span class="o">)</span><span class="o">;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="htmlutilremovehtmltag">HtmlUtil.removeHtmlTag</h3>
+<p>清除指定HTML标签和被标签包围的内容</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="n">String</span> <span class="n">str</span> <span class="o">=</span> <span class="s">&#34;pre&lt;img src=\&#34;xxx/dfdsfds/test.jpg\&#34;&gt;&#34;</span><span class="o">;</span>
+
+<span class="c1">// 结果为：pre
+</span><span class="c1"></span><span class="n">String</span> <span class="n">result</span> <span class="o">=</span> <span class="n">HtmlUtil</span><span class="o">.</span><span class="na">removeHtmlTag</span><span class="o">(</span><span class="n">str</span><span class="o">,</span> <span class="s">&#34;img&#34;</span><span class="o">)</span><span class="o">;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="过滤-html-文本防止-xss-攻击">过滤 HTML 文本，防止 XSS 攻击</h3>
+<p>这个作用就不必多说，防止用户在输入文本中写入 HTML 标签对后台造成攻击。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="n">String</span> <span class="n">html</span> <span class="o">=</span> <span class="s">&#34;&lt;alert&gt;&lt;/alert&gt;&#34;</span><span class="o">;</span>
+
+<span class="c1">// 结果为：&#34;&#34;
+</span><span class="c1"></span><span class="n">String</span> <span class="n">filter</span> <span class="o">=</span> <span class="n">HtmlUtil</span><span class="o">.</span><span class="na">filter</span><span class="o">(</span><span class="n">html</span><span class="o">)</span><span class="o">;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="json-工具">JSON 工具</h2>
+<p>由于有开源并且一直在维护的 Fastjson 工具在先，所以这里就不再细说 Hutool 中的 JSON 工具，使用方法基本类似。</p>
+<h1 id="写在最后">写在最后</h1>
+<p>上面只是简单的介绍了 Hutool 的典型常用工具，实际上 Hutool 基本覆盖了我们日常普通开发场景涉及的大部分工具类，有兴趣的可以自行查阅文档，介绍的很全，如果使用中遇到了 BUG，也欢迎及时向作者反馈哦🙋 。</p>
+]]></description>
+                
+                
+                
+                
+                
+                    
+                        
+                            
+                                
+                                
+                                
+                                    <category domain="https://example.com/categories/%E5%B8%B8%E7%94%A8%E6%8F%92%E4%BB%B6/">常用插件</category>
+                                
+                            
+                        
+                    
+                        
+                            
+                                
+                                
+                                
+                                    <category domain="https://example.com/tags/java%E5%B7%A5%E5%85%B7%E7%B1%BB%E5%BA%93/">java工具类库</category>
+                                
+                            
+                        
+                    
+                
+            </item>
         
             <item>
                 <title>关于异度侵入</title>
@@ -425,7 +720,7 @@
                                 
                                 
                                 
-                                    <category domain="https://example.com/categories/github/">github</category>
+                                    <category domain="https://example.com/categories/%E5%B8%B8%E7%94%A8%E6%8F%92%E4%BB%B6/">常用插件</category>
                                 
                             
                         
@@ -665,6 +960,62 @@
                                 
                                     <category domain="https://example.com/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</category>
                                 
+                            
+                                
+                                
+                                
+                                    <category domain="https://example.com/tags/java/">java</category>
+                                
+                            
+                        
+                    
+                
+            </item>
+        
+            <item>
+                <title>为什么String是不可变类型</title>
+                <link>https://example.com/posts/%E4%B8%BA%E4%BB%80%E4%B9%88string%E6%98%AF%E4%B8%8D%E5%8F%AF%E5%8F%98%E7%B1%BB%E5%9E%8B/</link>
+                <guid isPermaLink="true">https://example.com/posts/%E4%B8%BA%E4%BB%80%E4%B9%88string%E6%98%AF%E4%B8%8D%E5%8F%AF%E5%8F%98%E7%B1%BB%E5%9E%8B/</guid>
+                <pubDate>Sat, 23 Mar 2019 01:37:56 +0800</pubDate>
+                
+                    <author>1612291475@qq.com (小青蛙)</author>
+                
+                <copyright>[赣ICP备20004830号](http://www.beian.miit.gov.cn/)</copyright>
+                
+                    <description><![CDATA[<h1 id="为什么string是不可变类型">为什么String是不可变类型</h1>
+<p>String作为最常用的字符串类型，一直以来都没有了解它的实际构成，今天来简单分析一下它为什么是不可变类型！</p>
+<p>我们通过查看String的源码可以发现，String的本质就是被final修饰的char[],数组中每个字符拼接起来就成为了字符串;</p>
+<p><img src="https://gitee.com/zyh-h/blogimg/raw/master/img/20200810100237.png" alt=""></p>
+<p>很多人都说因为String是被final修饰的，所以是不可变类型，其实这是错误的观点，String确实是不可变类型，但是不仅仅只是被fianl修饰。</p>
+<p>final关键字修饰类时该类不可被继承，当一个属性被修饰时，当该属性为基本数据类型，它的值不可以改变，如果是数组或者引用类型时，那么仅仅是数组或者引用类型的地址不可以改变，但是内存地址上的值是可以改变的。</p>
+<p><img src="https://gitee.com/zyh-h/blogimg/raw/master/img/20200810104850.png" alt=""></p>
+<p><img src="https://gitee.com/zyh-h/blogimg/raw/master/img/20200810104901.png" alt=""></p>
+<p><img src="https://gitee.com/zyh-h/blogimg/raw/master/img/20200810111050.png" alt=""></p>
+<p>String为不可变类型的另一个原因是开发者在设计String时对这个value进行了权限控制(private)，以及每次操作生产新对象，也就是每次对String对象操作时，都不是在原有value这个数组上进行改动的，而是生成一个新的value数组，并对其进行操作，如下图所示。</p>
+<p><img src="https://gitee.com/zyh-h/blogimg/raw/master/img/20200810113107.png" alt=""></p>
+<p>String为什么被设计成不可变类型，最主要就是安全，String是在java中除了基本数据类型外最最常用的类型，几乎每个类都会用到，之所以把String设计成不可变类型最主要的优点就是安全，主要体现在 以下：</p>
+<ul>
+<li>无法被继承，私有方法不能被重写，(例如func(String str),func方法中只能传入String类型，而不能传入它的子类，放弃了多态的特性，方便语义上的统一)</li>
+<li>每次操作生成新的对象</li>
+<li>线程安全，因为String是不可变的，多个线程无法修改同一个String对象的值，能保持线程安全</li>
+</ul>]]></description>
+                
+                
+                
+                
+                
+                    
+                        
+                            
+                                
+                                
+                                
+                                    <category domain="https://example.com/categories/java%E5%B8%B8%E7%94%A8%E7%B1%BB/">java常用类</category>
+                                
+                            
+                        
+                    
+                        
                             
                                 
                                 
